@@ -13,6 +13,23 @@
     z-index: -1;
 }
 
+/*
+CSS for Section Headers
+*/
+
+.header-num {
+    color: red;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.header-title {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+/*
+CSS for Nav Bar
+*/
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -69,4 +86,47 @@
 .navbar-tool-label {
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
+}
+
+/*
+CSS for Contact Page
+*/
+
+.contact-entry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.contact-entry-icon {
+    font-size: 36px;
+    transition: transform 0.2s ease;
+}
+
+.contact-entry:hover .contact-entry-icon {
+    transform: translateY(-12px);
+    transition: transform 0.4s ease;
+}
+
+.contact-entry-text {
+    font-size: 24px;
+    padding-left: 16px;
+}
+
+/*
+CSS for Footer
+*/
+
+.footer {
+    font-size: 16px;
+
+    color: white;
+    background-color: #404040;
+
+    border-top: 2px;
+    border-color: black;
+    border-style: solid;
+
+    margin-top: 32px;
+    padding: 12px;
 }

@@ -1,12 +1,32 @@
+import { BsEnvelope, BsGithub, BsLinkedin } from "react-icons/bs";
 import SectionHeader from "../section-features/SectionHeader";
 
 export default function ContactPage() {
     return (
-        <div id="contact">
-            <SectionHeader entryNumber={5} titleLabel="Contact" />
-            <span>Background Designed by
-                <a className="classic-anchor" href="https://www.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_13223498.htm#query=pastel&position=19&from_view=keyword&track=ais_hybrid&uuid=f952c164-e355-44dc-8d01-b7c6080a9dda"> Freepik</a>
-            </span>
+        <div id="contact" className="relative">
+            <SectionHeader className="absolute top-1/2" entryNumber={5} titleLabel="Contact" />
+            <div className="flex align-center justify-center">
+                <div>
+                    <div className="contact-entry w-fit">
+                        <BsEnvelope className="contact-entry-icon"/>
+                        <span className="contact-entry-text source-code-pro">Email: <a className="classic-anchor2" href="mailto:kelvinlin2003@gmail.com" target="_blank">kelvinlin2003@gmail.com</a></span>
+                    </div>
+
+                    <div className="pb-6"></div>
+
+                    <div className="contact-entry w-fit">
+                        <BsLinkedin className="contact-entry-icon"/>
+                        <span className="contact-entry-text source-code-pro">LinkedIn: <a className="classic-anchor2" href="https://www.linkedin.com/in/kelvin-lin-J2003/" target="_blank">in/kelvin-lin-J2003/</a></span>
+                    </div>
+
+                    <div className="pb-6"></div>
+
+                    <div className="contact-entry w-fit">
+                        <BsGithub className="contact-entry-icon"/>
+                        <span className="contact-entry-text source-code-pro">GitHub: <a className="classic-anchor2" href="https://github.com/klin2003" target="_blank">gh/klin2003</a></span>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
