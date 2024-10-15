@@ -22,24 +22,38 @@ function SpotifyURLForm(props: any) {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        props.setPlaylistID(formInput);
+
+        let validInput = true;
+
+        if (formInput.startsWith("https://open.spotify.com/playlist/")) {
+            const extractedID = extractPlaylistID(formInput);
+            if (extractedID)
+                props.setPlaylistID(extractedID);
+            else
+                validInput = false;
+        } else {
+            props.setPlaylistID(formInput);
+        }
+
+        setFormInput("");
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            {/* Step 4: Create the input field */}
-            <label htmlFor="props.playlistID">
-                <input
-                    type="text"
-                    value={formInput}
-                    onChange={handleInputChange}
-                    placeholder="Type something..."
-                />
-            </label>
-            {/* Step 5: Add a submit button */}
-            <button type="submit">Submit</button>
+        <form onSubmit={handleSubmit} className="spotify-form">
+            <input className="spotify-form-input"
+                type="text"
+                value={formInput}
+                onChange={handleInputChange}
+                placeholder="Enter Playlist ID or URL:"
+            />
+            <button className="spotify-form-submit" type="submit">Submit</button>
         </form>
     );
+}
+
+function extractPlaylistID(url: string): string | null {
+    const match = url.match(/\/playlist\/(.*?)(\?)/);
+    return match ? match[1] : null;
 }
 
 export { SpotifyEmbed, SpotifyURLForm }

@@ -22,12 +22,12 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="relative">
       <img className="bg-image" src="/pastel-bg.jpg"></img>
 
       <NavBar width={windowWidth} />
 
-      <AboutPage />
+      <AboutPage width={windowWidth} />
       <ProjectsPage />
       <ToolsPage />
       <ContactPage width={windowWidth} />
