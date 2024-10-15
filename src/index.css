@@ -2,6 +2,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+html, body {
+  min-width: 800px;
+}
+
 .classic-anchor1 {
   font-weight: 500;
   color: #646cff;

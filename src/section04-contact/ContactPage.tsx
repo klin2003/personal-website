@@ -1,11 +1,11 @@
 import { BsEnvelope, BsGithub, BsLinkedin } from "react-icons/bs";
 import SectionHeader from "../section-features/SectionHeader";
 
-export default function ContactPage() {
+export default function ContactPage(props: any) {
     return (
         <div id="contact" className="relative">
-            <SectionHeader className="absolute top-1/2" entryNumber={5} titleLabel="Contact" />
-            <div className="flex align-center justify-center">
+            <SectionHeader className="contact absolute top-1/2" entryNumber={4} titleLabel={(props.width > 1000) ? "Contact" : ''} />
+            <div className="contact-div flex align-center">
                 <div>
                     <div className="contact-entry w-fit">
                         <BsEnvelope className="contact-entry-icon"/>

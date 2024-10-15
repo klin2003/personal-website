@@ -7,6 +7,7 @@
     top: 0;
     left: 0;
 
+    min-width: 800px;
     width: 100%;
     height: 100%;
 
@@ -27,7 +28,7 @@ CSS for Section Headers
 }
 
 /*
-CSS for Nav Bar
+CSS for Navigation Bar
 */
 
 .navbar {
@@ -46,6 +47,8 @@ CSS for Nav Bar
 .navbar-logo {
     width: 64px;
     height: 64px;
+    
+    margin-left: 16px;
 }
 
 .navbar-title {
@@ -81,6 +84,7 @@ CSS for Nav Bar
 
 .navbar-tool-icon {
     font-size: 40px;
+    margin-bottom: 8px;
 }
 
 .navbar-tool-label {
@@ -89,8 +93,61 @@ CSS for Nav Bar
 }
 
 /*
-CSS for Contact Page
+CSS for About Section
 */
+
+#about {   
+    padding: 16px;
+}
+
+/*
+CSS for Projects Section
+*/
+
+#projects {
+    background-color: #00145e;
+    padding: 16px;
+}
+
+.projects .section-header .header-title {
+    color: white;
+}
+
+/*
+CSS for Tools Section
+*/
+
+#tools {
+    background-color: #a5e2ea;
+    padding: 16px;
+}
+
+/*
+CSS for Contact Section
+*/
+
+#contact {
+    padding-top: 16px;
+}
+
+@media (min-width: 1001px) and (max-width: 1200px) {
+    .contact-div {
+        justify-content: flex-end;
+        padding-right: 128px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .contact-div {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1201px) {
+    .contact-div {
+        justify-content: center;
+    }
+}
 
 .contact-entry {
     display: flex;
@@ -127,6 +184,6 @@ CSS for Footer
     border-color: black;
     border-style: solid;
 
-    margin-top: 32px;
+    margin-top: 40px;
     padding: 12px;
 }

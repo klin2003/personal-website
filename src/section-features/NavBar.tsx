@@ -1,19 +1,19 @@
-import { BsBriefcaseFill, BsCollectionFill, BsFillInfoCircleFill, BsFillTelephoneFill, BsTools } from "react-icons/bs";
+import { BsCollectionFill, BsFillInfoCircleFill, BsFillTelephoneFill, BsTools } from "react-icons/bs";
 
-const NavBar = ({ }: {}) => {
+export default function NavBar(props: any) {
     return (
         <div className="navbar">
-            <Logo />
+            <Logo width={props.width}/>
             <ToolBar />
         </div>
     );
 };
 
-function Logo() {
+function Logo(props: any) {
     return (
         <div className="flex items-center">
             <img className="navbar-logo" src="/korvue-3.svg" alt="logo"></img>
-            <div className="navbar-title">Kelvin Lin</div>
+            <div className="navbar-title">{(props.width > 900) ? "Kelvin Lin" : "Kelvin"}</div>
         </div>
     );
 }
@@ -29,10 +29,6 @@ function ToolBar() {
                 <BsCollectionFill className="navbar-tool-icon" />
                 <span className="navbar-tool-label">Projects</span>
             </a>
-            <a href="#experiences" className="navbar-tools">
-                <BsBriefcaseFill className="navbar-tool-icon" />
-                <span className="navbar-tool-label">Experiences</span>
-            </a>
             <a href="#tools" className="navbar-tools">
                 <BsTools className="navbar-tool-icon" />
                 <span className="navbar-tool-label">Tools</span>
@@ -44,5 +40,3 @@ function ToolBar() {
         </div>
     );
 }
-
-export default NavBar;

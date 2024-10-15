@@ -4,12 +4,10 @@ import { useState, useEffect } from 'react';
 import NavBar from './section-features/NavBar';
 import Footer from './section-features/Footer';
 
-import MainPage from './section00-audio/MainPage';
 import AboutPage from './section01-about/AboutPage';
 import ProjectsPage from './section02-projects/ProjectsPage';
-import ExperiencesPage from './section03-experience/ExperiencesPage';
-import ToolsPage from './section04-tools/ToolsPage';
-import ContactPage from './section05-contact/ContactPage';
+import ToolsPage from './section03-tools/ToolsPage';
+import ContactPage from './section04-contact/ContactPage';
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -27,14 +25,12 @@ function App() {
     <div>
       <img className="bg-image" src="/pastel-bg.jpg"></img>
 
-      <NavBar />
+      <NavBar width={windowWidth} />
 
-      <MainPage />
       <AboutPage />
       <ProjectsPage />
-      <ExperiencesPage />
       <ToolsPage />
-      <ContactPage />
+      <ContactPage width={windowWidth} />
 
       <Footer />
     </div>
