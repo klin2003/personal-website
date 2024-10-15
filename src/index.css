@@ -2,6 +2,24 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.classic-anchor {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+.classic-anchor:hover {
+  color: #535bf2;
+}
+
 .fira-code {
   font-family: "Fira Code", monospace;
+}
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.averia-serif {
+  font-family: "Averia Serif Libre", serif;
 }

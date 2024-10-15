@@ -11,6 +11,8 @@ import ContactPage from './section05-contact/ContactPage';
 function App() {
   return (
     <div>
+      <img className="bg-image" src="/pastel-bg.jpg"></img>
+
       <NavBar />
       <MainPage />
       <AboutPage />
