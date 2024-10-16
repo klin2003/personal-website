@@ -3,7 +3,7 @@ const SectionHeader = ({ entryNumber, titleLabel, className = '' }: { entryNumbe
 
     return (
         <div className={className}>
-            <div className="section-header fira-code text-4xl font-400 pl-4">
+            <div className="section-header fira-code">
                 <span className="header-num">{`${titleNumber}| `}</span>
                 <span className="header-title">{titleLabel}</span>
             </div>
