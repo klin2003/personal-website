@@ -23,14 +23,13 @@ function SpotifyURLForm(props: any) {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        let validInput = true;
+        if(formInput.length == 0)
+            return;
 
         if (formInput.startsWith("https://open.spotify.com/playlist/")) {
             const extractedID = extractPlaylistID(formInput);
             if (extractedID)
                 props.setPlaylistID(extractedID);
-            else
-                validInput = false;
         } else {
             props.setPlaylistID(formInput);
         }

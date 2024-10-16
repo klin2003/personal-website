@@ -2,6 +2,62 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/*
+CSS Keyframe Animations
+*/
+
+@keyframes jump {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes wobble {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    15% {
+        transform: rotate(4deg);
+    }
+
+    30% {
+        transform: rotate(-4deg);
+    }
+
+    45% {
+        transform: rotate(2deg);
+    }
+
+    60% {
+        transform: rotate(-2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/*
+CSS for BG
+*/
+
 .bg-image {
     position: fixed;
     top: 0;
@@ -81,7 +137,14 @@ CSS for Navigation Bar
 
 .navbar-tools:hover {
     border: 2px white solid;
-    color: #505050;
+}
+
+.navbar-tools:hover .navbar-tool-icon {
+    color: #3f3f3f;
+}
+
+.navbar-tools:hover .navbar-tool-label {
+    text-decoration: underline;
 }
 
 .navbar-tool-icon {
@@ -102,29 +165,111 @@ CSS for About Section
     padding: 16px;
 }
 
+.about-description {
+    padding: 0px 32px;
+    width: 540px;
+}
+
+.about-description-heading {
+    display: flex;
+    flex-wrap: nowrap;
+
+    font-size: 56px;
+    font-weight: 600;
+    font-family: "Raleway", sans-serif;
+
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+    color: black;
+}
+
+.about-description-h2 {
+    color: transparent;
+    text-shadow: 0px 0px;
+
+    background: linear-gradient(45deg,
+            #b00000 25%,
+            #d00000 50%,
+            #f00000 75%);
+
+    background-size: 200% auto;
+    background-position: 0% 0;
+    transition: background-position 0.5s ease;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.about-description-heading:hover .about-description-h1 {
+    animation: wobble 2s ease;
+}
+
+.about-description-heading:hover .about-description-h2 {
+    animation: shimmer 2s infinite linear;
+}
+
+.about-description-paragraph {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "Source Code Pro", monospace;
+}
+
+.about-description-paragraph-ul {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+    text-decoration: underline solid #006db0;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
 .about-spotify {
-    margin: 0px 32px;
+    margin-right: 32px;
 }
 
 .spotify-form {
+    display: flex;
+    align-items: center;
+
     padding: 16px;
 }
 
 .spotify-form-input {
     padding: 4px 8px;
-    margin-right: 16px;
 
     border-radius: 8px;
-    border: 2px solid black;
+    border: 3px solid black;
+
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 1000px) { /* Change layout for smaller screens */
+    .spotify-form {
+        flex-direction: column;
+    }
+    .spotify-form-input {
+        margin-bottom: 8px;
+    }
+}
+
+@media (min-width: 1001px) { /* Change layout for smaller screens */
+    .spotify-form {
+        flex-direction: row;
+    }
+    .spotify-form-input {
+        margin-right: 16px;
+    }
 }
 
 .spotify-form-submit {
     color: white;
     background-color: #1b1bff;
-    
+
     padding: 2px 8px;
     border-radius: 12px;
-    border: 1px solid black;
+    border: 2px solid black;
+
+    box-shadow: 2px 2px 4px 2px rgb(15, 0, 175, 0.2);
 
     cursor: pointer;
     transition: background-color ease 0.5s;
@@ -165,23 +310,8 @@ CSS for Contact Section
     margin: 8px 0px;
 }
 
-@media (min-width: 1001px) and (max-width: 1200px) {
-    .contact-div {
-        justify-content: flex-end;
-        padding-right: 128px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .contact-div {
-        justify-content: center;
-    }
-}
-
-@media (min-width: 1201px) {
-    .contact-div {
-        justify-content: center;
-    }
+.contact-div {
+    justify-content: center;
 }
 
 .contact-entry {
@@ -192,12 +322,10 @@ CSS for Contact Section
 
 .contact-entry-icon {
     font-size: 36px;
-    transition: transform 0.2s ease;
 }
 
 .contact-entry:hover .contact-entry-icon {
-    transform: translateY(-12px);
-    transition: transform 0.4s ease;
+    animation: jump 0.6s ease 3;
 }
 
 .contact-entry-text {

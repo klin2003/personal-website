@@ -4,7 +4,7 @@ import SectionHeader from "../section-features/SectionHeader";
 export default function ContactPage(props: any) {
     return (
         <div id="contact" className="relative">
-            <SectionHeader className="contact absolute top-1/2" entryNumber={4} titleLabel={(props.width > 1000) ? "Contact" : ''} />
+            <SectionHeader className="contact absolute top-1/2" entryNumber={4} titleLabel={(props.width > 1200) ? "Contact" : ''} />
             <div className="contact-div flex align-center">
                 <div>
                     <div className="contact-entry w-fit">
