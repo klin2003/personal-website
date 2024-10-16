@@ -163,6 +163,7 @@ CSS for About Section
 
 #about {
     padding: 16px;
+    margin-bottom: 32px;
 }
 
 .about-description {

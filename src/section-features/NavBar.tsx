@@ -1,3 +1,5 @@
+import SiteLogo from '../assets/korvue-3.svg';
+
 import { BsCollectionFill, BsFillInfoCircleFill, BsFillTelephoneFill, BsTools } from "react-icons/bs";
 
 export default function NavBar(props: any) {
@@ -12,7 +14,7 @@ export default function NavBar(props: any) {
 function Logo(props: any) {
     return (
         <div className="flex items-center">
-            <img className="navbar-logo" src="/korvue-3.svg" alt="logo"></img>
+            <img className="navbar-logo" src={SiteLogo} alt="logo"></img>
             <div className="navbar-title">{(props.width > 900) ? "Kelvin Lin" : "Kelvin"}</div>
         </div>
     );

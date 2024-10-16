@@ -1,6 +1,8 @@
 import './App.css'
 import { useState, useEffect } from 'react';
 
+import BackgroundImage from './assets/pastel-bg.jpg';
+
 import NavBar from './section-features/NavBar';
 import Footer from './section-features/Footer';
 
@@ -23,7 +25,7 @@ function App() {
 
   return (
     <div className="relative">
-      <img className="bg-image" src="/pastel-bg.jpg"></img>
+      <img className="bg-image" src={BackgroundImage}></img>
 
       <NavBar width={windowWidth} />
 
