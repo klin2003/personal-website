@@ -15,16 +15,20 @@ export default function AboutPage(props: any) {
                 </div><br/>
                 
                 <div className="about-description-paragraph">
-                    I am currently a Software Engineering student based in NY.
-                    My passions in the Computer Science field include <span className="about-description-paragraph-ul">Game Development</span> and Web Development.
+                    I am currently a Software Engineering student based in New York. 
+                    My passions in the field include <span className="about-description-paragraph-ul">Game Development</span> and <span className="about-description-paragraph-ul">Web Development</span>.
                 </div><br/>
 
                 <div className="about-description-paragraph">
-                    I am currently taking a course on Natural Language Processing and
-                    am double majoring in Applied Mathematics and Statistics.
-                    Currently looking for any entry-level position or internship
-                    to grow my skill set. Feel free to look around for my past projects
-                    and overall tools and frameworks that I have used before.
+                    As a student, I am currently taking a course on <span className="about-description-paragraph-ul">Natural Language Processing</span> and
+                    am double majoring in <span className="about-description-paragraph-ul">Applied Mathematics and Statistics</span>. 
+                </div><br/>
+                
+                <div className="about-description-paragraph">
+                    I'm always open and eager to learn new technologies and frameworks.
+                    Currently, I am seeking an entry-level position or internship
+                    where I can continue to expand upon my skills. Please feel free
+                    to explore some of my past projects!
                 </div>
             </div>
             <div className="about-spotify flex flex-col items-center">
