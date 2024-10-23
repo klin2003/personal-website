@@ -102,7 +102,7 @@ CSS for Navigation Bar
     align-items: center;
     justify-content: space-between;
 
-    padding: 4px;
+    padding: 2px;
     margin-bottom: 24px;
 
     background: linear-gradient(90deg, #98fb98, #b0e0e6);
@@ -110,8 +110,8 @@ CSS for Navigation Bar
 }
 
 .navbar-logo {
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
 
     margin-left: 16px;
 }
@@ -136,7 +136,8 @@ CSS for Navigation Bar
     align-items: center;
     justify-content: center;
 
-    padding: 8px 16px;
+    padding: 8px 12px;
+    margin: 2px 0px;
     border: 2px transparent solid;
 
     transition: color 0.2s ease;
@@ -147,7 +148,7 @@ CSS for Navigation Bar
 }
 
 .navbar-tools:hover .navbar-tool-icon {
-    color: #3f3f3f;
+    color: #606060;
 }
 
 .navbar-tools:hover .navbar-tool-label {
@@ -161,7 +162,10 @@ CSS for Navigation Bar
 
 .navbar-tool-label {
     font-size: 20px;
+    font-weight: 500;
     font-family: 'Montserrat', sans-serif;
+
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /*
@@ -255,19 +259,25 @@ CSS for About Section
 }
 
 
-@media (max-width: 1000px) { /* Change layout for smaller screens */
+@media (max-width: 1000px) {
+
+    /* Change layout for smaller screens */
     .spotify-form {
         flex-direction: column;
     }
+
     .spotify-form-input {
         margin-bottom: 8px;
     }
 }
 
-@media (min-width: 1001px) { /* Change layout for smaller screens */
+@media (min-width: 1001px) {
+
+    /* Change layout for smaller screens */
     .spotify-form {
         flex-direction: row;
     }
+
     .spotify-form-input {
         margin-right: 16px;
     }
@@ -296,12 +306,61 @@ CSS for Projects Section
 */
 
 #projects {
-    background-color: #00145e;
+    background-color: #001150;
+
+    width: 100%;
+
     padding: 16px;
 }
 
 .projects .section-header .header-title {
     color: white;
+}
+
+.projects-container {
+    flex-grow: 1;
+
+    padding: 0px 32px;
+}
+
+.projects-display-section {
+    margin-bottom: 32px;
+}
+
+.projects-header-arrow {
+    display: inline-block;
+
+    cursor: pointer;
+
+    padding: 0;
+    margin: 0;
+}
+
+.projects-header-title {
+    font-size: 48px;
+    font-weight: 200;
+}
+
+.projects-header-index {
+    display: inline-block;
+
+    font-size: 24px;
+    font-family: "Source Code Pro", monospace;
+
+    padding: 0px 32px;
+}
+
+.projects-header-arrow {
+    width: 32px;
+    height: 32px;
+}
+
+.projects-header-arrow:hover {
+    fill: #bababa;
+}
+
+.project-display-images {
+    margin: 48px 0px;
 }
 
 /*

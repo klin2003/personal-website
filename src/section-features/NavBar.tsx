@@ -35,7 +35,7 @@ function ToolBar() {
                 <BsTools className="navbar-tool-icon" />
                 <span className="navbar-tool-label">Tools</span>
             </a>
-            <a href="#contact" className="navbar-tools">
+            <a href="#contact" className="navbar-tools mr-4">
                 <BsFillTelephoneFill className="navbar-tool-icon" />
                 <span className="navbar-tool-label">Contact</span>
             </a>

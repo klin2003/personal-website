@@ -30,8 +30,8 @@ function App() {
       <NavBar width={windowWidth} />
 
       <AboutPage width={windowWidth} />
-      <ProjectsPage />
-      <ToolsPage />
+      <ProjectsPage width={windowWidth} />
+      <ToolsPage width={windowWidth} />
       <ContactPage width={windowWidth} />
 
       <Footer />
