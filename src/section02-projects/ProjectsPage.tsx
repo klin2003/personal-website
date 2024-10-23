@@ -1,9 +1,11 @@
 import { useState } from "react";
 
+import { Fade, Slide } from "react-awesome-reveal";
+import { Switch } from '@mui/material';
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+
 import SectionHeader from "../section-features/SectionHeader";
 import PROJECTS, { ProjectInfo } from "./ProjectData";
-import { Fade, Slide } from "react-awesome-reveal";
 
 interface ProjectProps {
     projectData: ProjectInfo[],
@@ -35,7 +37,7 @@ export default function ProjectsPage(props: any) {
             <div className="projects-container flex flex-col text-white">
                 <ProjectHeader projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
                 <ProjectDisplay projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
-                {/* <ProjectDetails projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} /> */}
+                <ProjectDetails projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
             </div>
         </div>
     );
@@ -54,26 +56,31 @@ function ProjectHeader({ projectData, projectIndex, setProjectIndex }: ProjectPr
     }
 
     return (
-        <div className="projects-header-section flex flex-row justify-between">
-            <Fade key={`${projectIndex}${keyGen.next().value}`}>
-                <div className="flex flex-col">
-                    <div className="projects-header-title averia-serif">{currProject.title}</div>
-                    <div className="projects-header-status montserrat italic-text">{`[${currProject.status}]`}</div>
-                </div>
-            </Fade>
-
-            <div className="projects-header-settings flex justify-center items-center">
-                <BsArrowLeftCircleFill className="projects-header-arrow" onClick={() => { changeIndex(false) }} />
-
-                <div className="projects-header-index">
-                    <span className="font-medium text-red-500">{`${projectIndex.toString().padStart(3, '0')}`}</span>
-                    <span> / </span>
-                    <span>{`${projectData.length.toString().padStart(3, '0')}`}</span>
-                </div>
-
-                <BsArrowRightCircleFill className="projects-header-arrow" onClick={() => { changeIndex(true) }} />
+        <>
+            <div className="text-red-500 font-bold montserrat">
+                CURRENT LISTING:
             </div>
-        </div>
+            <div className="projects-header-section flex flex-row justify-between">
+                <Fade key={`${projectIndex}${keyGen.next().value}`}>
+                    <div className="flex flex-col">
+                        <div className="projects-header-title averia-serif">{currProject.title}</div>
+                        <div className="projects-header-status montserrat text-gray-500 font-bold">{`[${currProject.status}]`}</div>
+                    </div>
+                </Fade>
+
+                <div className="projects-header-settings flex justify-center items-center">
+                    <BsArrowLeftCircleFill className="projects-header-arrow" onClick={() => { changeIndex(false) }} />
+
+                    <div className="projects-header-index">
+                        <span className="font-medium text-red-500">{`${projectIndex.toString().padStart(3, '0')}`}</span>
+                        <span> / </span>
+                        <span>{`${projectData.length.toString().padStart(3, '0')}`}</span>
+                    </div>
+
+                    <BsArrowRightCircleFill className="projects-header-arrow" onClick={() => { changeIndex(true) }} />
+                </div>
+            </div>
+        </>
     );
 }
 
@@ -98,8 +105,6 @@ function ProjectDisplay({ projectData, projectIndex, setProjectIndex }: ProjectP
 function ProjectImageSlides({ projectData, projectIndex }: ProjectProps) {
     const currProject = projectData[projectIndex - 1];
 
-    console.log(`Images: ${currProject.images}`);
-
     if (currProject.images.length == 0) {
         return (
             <div className="project-display-images flex items-center">
@@ -109,7 +114,9 @@ function ProjectImageSlides({ projectData, projectIndex }: ProjectProps) {
     } else {
         return (
             <div className="project-display-images flex items-center">
-                Images Found
+                {currProject.images.map((urlModule, index) => (
+                    <img key={index} src={urlModule.default} className="project-img" />
+                ))}
             </div>
         );
     }
@@ -119,23 +126,28 @@ function ProjectDetails({ projectData, projectIndex, setProjectIndex }: ProjectP
     const [viewDescription, toggleDescription] = useState(true);
 
     return (
-        <div className="projects-details-section flex flex-row justify-between">
-            <div className="projects-details-description">
-                {viewDescription && <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />}
-                {!viewDescription && <ProjectObjectives projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />}
+        <>
+            <Switch checked={!viewDescription} onChange={() => { toggleDescription(!viewDescription) }} />
+            <div className="projects-details-section flex flex-row justify-between">
+                <div className="projects-details-description">
+                    {viewDescription && <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />}
+                    {!viewDescription && <ProjectObjectives projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />}
+                </div>
+                <div className="projects-details-misc flex flex-col">
+                    <ProjectTags projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
+                    <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
+                </div>
             </div>
-            <div className="projects-details-misc flex flex-col">
-                <ProjectTags projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
-                <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
-            </div>
-        </div>
+        </>
     );
 }
 
 function ProjectDescription({ projectData, projectIndex }: ProjectProps) {
+    const currProject = projectData[projectIndex - 1];
+
     return (
         <>
-            <div className="projects-description-title">Description</div>
+            <div className="projects-details-title">DESCRIPTION</div>
             <div className="projects-description-content">
                 Content
             </div>
@@ -144,10 +156,12 @@ function ProjectDescription({ projectData, projectIndex }: ProjectProps) {
 }
 
 function ProjectObjectives({ projectData, projectIndex }: ProjectProps) {
+    const currProject = projectData[projectIndex - 1];
+
     return (
         <>
-            <div className="projects-objectives-title">Learning Objectives</div>
-            <div className="projects-objectives-content">
+            <div className="projects-details-title">LEARNING OBJECTIVES</div>
+            <div className="projects-description-content">
                 Content
             </div>
         </>
@@ -155,17 +169,17 @@ function ProjectObjectives({ projectData, projectIndex }: ProjectProps) {
 }
 
 function ProjectTags({ projectData, projectIndex }: ProjectProps) {
+    const currProject = projectData[projectIndex - 1];
+
     return (
-        <div>
-            Tags
-        </div>
+        <div className="projects-details-title">TAGS</div>
     );
 }
 
 function ProjectLinks({ projectData, projectIndex }: ProjectProps) {
+    const currProject = projectData[projectIndex - 1];
+
     return (
-        <div>
-            Links
-        </div>
+        <div className="projects-details-title">LINKS</div>
     );
 }

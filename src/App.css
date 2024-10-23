@@ -359,8 +359,29 @@ CSS for Projects Section
     fill: #bababa;
 }
 
+.projects-display-section {
+    margin-bottom: 32px;
+}
+
 .project-display-images {
-    margin: 48px 0px;
+    margin: 32px 0px 16px 0px
+}
+
+.project-img {
+    max-height: 256px;
+    width: auto;
+    height: auto;
+
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.3);
+}
+
+.projects-details-title {
+    color: #5f9bad;
+
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /*

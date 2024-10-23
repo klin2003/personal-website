@@ -1,7 +1,7 @@
 import './App.css'
 import { useState, useEffect } from 'react';
 
-import BackgroundImage from './assets/pastel-bg.jpg';
+import BackgroundImage from '@assets/pastel-bg.jpg';
 
 import NavBar from './section-features/NavBar';
 import Footer from './section-features/Footer';

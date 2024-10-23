@@ -25,9 +25,11 @@ const PROJECTS: ProjectInfo[] = [
         
         last_updated: "Jul 3, 2024",
         images: Object.values(
-            import.meta.glob(`../assets/projects/Asphodel`, {
+            import.meta.glob(`@assets/project-images/Asphodel/*.png`, {
                 eager: true,
-                query: "url",
+                query: {
+                  type: 'url',
+                },
             }),
         ),
 
@@ -46,9 +48,11 @@ const PROJECTS: ProjectInfo[] = [
         
         last_updated: "Mar 13, 2024",
         images: Object.values(
-            import.meta.glob(`../assets/projects/ViewYou`, {
+            import.meta.glob(`../assets/project-images/ViewYou/*.png`, {
                 eager: true,
-                query: "url",
+                query: {
+                  type: 'url',
+                },
             }),
         ),
 
@@ -67,9 +71,11 @@ const PROJECTS: ProjectInfo[] = [
         
         last_updated: "Oct 29, 2023",
         images: Object.values(
-            import.meta.glob(`../assets/projects/MCBingo`, {
+            import.meta.glob(`../assets/project-images/MCBingo/*.png`, {
                 eager: true,
-                query: "url",
+                query: {
+                  type: 'url',
+                },
             }),
         ),
 
@@ -88,9 +94,11 @@ const PROJECTS: ProjectInfo[] = [
         
         last_updated: "Dec 22, 2023",
         images: Object.values(
-            import.meta.glob(`../assets/projects/FakeSO`, {
+            import.meta.glob(`../assets/project-images/FakeSO/*.png`, {
                 eager: true,
-                query: "url",
+                query: {
+                  type: 'url',
+                },
             }),
         ),
 
@@ -109,9 +117,11 @@ const PROJECTS: ProjectInfo[] = [
         
         last_updated: "Feb 11, 2024",
         images: Object.values(
-            import.meta.glob(`../assets/projects/T2L`, {
+            import.meta.glob(`../assets/project-images/T2L/*.png`, {
                 eager: true,
-                query: "url",
+                query: {
+                  type: 'url',
+                },
             }),
         ),
 
@@ -130,9 +140,11 @@ const PROJECTS: ProjectInfo[] = [
         
         last_updated: "Apr 05, 2023",
         images: Object.values(
-            import.meta.glob(`../assets/projects/MemoryAllocator`, {
+            import.meta.glob(`../assets/project-images/MemoryAllocator/*.png`, {
                 eager: true,
-                query: "url",
+                query: {
+                  type: 'url',
+                },
             }),
         ),
 
@@ -151,9 +163,11 @@ const PROJECTS: ProjectInfo[] = [
         
         last_updated: "Dec 11, 2022",
         images: Object.values(
-            import.meta.glob(`../assets/projects/Graphs_MIPs`, {
+            import.meta.glob(`../assets/project-images/Graphs_MIPs/*.png`, {
                 eager: true,
-                query: "url",
+                query: {
+                  type: 'url',
+                },
             }),
         ),
 
@@ -172,9 +186,11 @@ const PROJECTS: ProjectInfo[] = [
         
         last_updated: "Jun 14, 2020",
         images: Object.values(
-            import.meta.glob(`../assets/projects/TNCR`, {
+            import.meta.glob(`../assets/project-images/TNCR/*.png`, {
                 eager: true,
-                query: "url",
+                query: {
+                  type: 'url',
+                },
             }),
         ),
 

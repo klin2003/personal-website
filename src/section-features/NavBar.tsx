@@ -1,4 +1,4 @@
-import SiteLogo from '../assets/korvue-3.svg';
+import SiteLogo from '@assets/korvue-3.svg';
 
 import { BsCollectionFill, BsFillInfoCircleFill, BsFillTelephoneFill, BsTools } from "react-icons/bs";
 
