@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Fade, Slide } from "react-awesome-reveal";
 import { Switch } from '@mui/material';
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCodeSlash, BsGithub, BsLink45Deg } from "react-icons/bs";
 
 import SectionHeader from "../section-features/SectionHeader";
 import PROJECTS, { ProjectInfo } from "./ProjectData";
@@ -33,7 +33,7 @@ export default function ProjectsPage(props: any) {
 
     return (
         <div id="projects" className="flex flex-row items-center">
-            <SectionHeader className="projects" entryNumber={2} titleLabel={(props.width > 1200) ? "Projects (WIP)" : ""} />
+            <SectionHeader className="projects" entryNumber={2} titleLabel={(props.width > 1200) ? "Projects" : ""} />
             <div className="projects-container flex flex-col text-white">
                 <ProjectHeader projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
                 <ProjectDisplay projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
@@ -88,7 +88,7 @@ function ProjectDisplay({ projectData, projectIndex, setProjectIndex }: ProjectP
     const currProject = projectData[projectIndex - 1];
 
     return (
-        <div className="projects-display-section flex flex-col">
+        <div className="projects-display-section flex flex-col overflow-hidden">
             <Slide key={`${projectIndex}${keyGen.next().value}`} direction="right">
                 <ProjectImageSlides projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
             </Slide>
@@ -123,17 +123,13 @@ function ProjectImageSlides({ projectData, projectIndex }: ProjectProps) {
 }
 
 function ProjectDetails({ projectData, projectIndex, setProjectIndex }: ProjectProps) {
-    const [viewDescription, toggleDescription] = useState(true);
-
     return (
         <>
-            <Switch checked={!viewDescription} onChange={() => { toggleDescription(!viewDescription) }} />
-            <div className="projects-details-section flex flex-row justify-between">
-                <div className="projects-details-description">
-                    {viewDescription && <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />}
-                    {!viewDescription && <ProjectObjectives projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />}
+            <div className="projects-details-section flex flex-row">
+                <div className="projects-details-description w-1/2">
+                    <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
                 </div>
-                <div className="projects-details-misc flex flex-col">
+                <div className="projects-details-misc w-1/2 flex flex-col">
                     <ProjectTags projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
                     <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
                 </div>
@@ -143,27 +139,32 @@ function ProjectDetails({ projectData, projectIndex, setProjectIndex }: ProjectP
 }
 
 function ProjectDescription({ projectData, projectIndex }: ProjectProps) {
+    const [viewDescription, toggleDescription] = useState(true);
     const currProject = projectData[projectIndex - 1];
 
     return (
         <>
-            <div className="projects-details-title">DESCRIPTION</div>
-            <div className="projects-description-content">
-                Content
-            </div>
-        </>
-    );
-}
+            <Switch checked={!viewDescription} onChange={() => { toggleDescription(!viewDescription) }} />
+            {viewDescription &&
+                <Fade key={`${projectIndex}${keyGen.next().value}`}>
+                    <div className="projects-details-title">DESCRIPTION</div>
+                    <div className="projects-description-content source-code-pro">{currProject.description}</div>
+                </Fade>
+            }
 
-function ProjectObjectives({ projectData, projectIndex }: ProjectProps) {
-    const currProject = projectData[projectIndex - 1];
+            {!viewDescription &&
+                <Fade key={`${projectIndex}${keyGen.next().value}`}>
+                    <div className="projects-details-title">LEARNING OBJECTIVES</div>
 
-    return (
-        <>
-            <div className="projects-details-title">LEARNING OBJECTIVES</div>
-            <div className="projects-description-content">
-                Content
-            </div>
+                    <div className="projects-description-content source-code-pro">
+                        {currProject.objectives.map((obj, index) => (
+                            <span key={index} className="projects-objective-listing">
+                                {`- ${obj}`}
+                            </span>
+                        ))}
+                    </div>
+                </Fade>
+            }
         </>
     );
 }
@@ -172,7 +173,16 @@ function ProjectTags({ projectData, projectIndex }: ProjectProps) {
     const currProject = projectData[projectIndex - 1];
 
     return (
-        <div className="projects-details-title">TAGS</div>
+        <>
+            <Fade key={`${projectIndex}${keyGen.next().value}`}>
+                <div className="projects-details-title">TAGS</div>
+                <div className="projects-tags-container">
+                    {currProject.tags.map((obj, index) => (
+                        <span key={index} className="projects-tag">{obj}</span>
+                    ))}
+                </div>
+            </Fade>
+        </>
     );
 }
 
@@ -180,6 +190,36 @@ function ProjectLinks({ projectData, projectIndex }: ProjectProps) {
     const currProject = projectData[projectIndex - 1];
 
     return (
-        <div className="projects-details-title">LINKS</div>
+        <>
+            <Fade key={`${projectIndex}${keyGen.next().value}`}>
+                <div className="projects-details-title">LINKS</div>
+                <div className="projects-links-container">
+                    {currProject.links.map((obj, index) => (
+                        <div className="flex items-center">
+                            {obj.type == 'GitHub' && (
+                                <>
+                                    <BsGithub key={index} size={24} className="mr-2" />
+                                    <span className="source-code-pro">Github:&nbsp;</span>
+                                </>
+                            )}
+                            {obj.type == 'Code' && (
+                                <>
+                                    <BsCodeSlash key={index} size={24} className="mr-2" />
+                                    <span className="source-code-pro">Code Snippets:&nbsp;</span>
+                                </>
+                            )}
+                            {obj.type == 'Try' && (
+                                <>
+                                    <BsLink45Deg key={index} size={24} className="mr-2" />
+                                    <span className="source-code-pro">Try Yourself:&nbsp;</span>
+                                </>
+                            )}
+
+                            <a className="source-code-pro classic-anchor1" href={obj.url} target="_blank">{obj.name}</a>
+                        </div>
+                    ))}
+                </div>
+            </Fade>
+        </>
     );
 }

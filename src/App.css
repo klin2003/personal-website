@@ -315,12 +315,14 @@ CSS for Projects Section
 
 .projects .section-header .header-title {
     color: white;
+
+    padding-right: 32px;
 }
 
 .projects-container {
     flex-grow: 1;
 
-    padding: 0px 32px;
+    padding: 32px;
 }
 
 .projects-display-section {
@@ -382,6 +384,25 @@ CSS for Projects Section
     font-size: 24px;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
+
+    margin-bottom: 16px;
+}
+
+.projects-tags-container {
+    margin-bottom: 32px;
+}
+
+.projects-tag {
+    color: #000000;
+    background-color: #93c4d0;
+
+    font-weight: 600px;
+
+    border: 1px black solid;
+    border-radius: 64px;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.5);
+
+    padding: 4px 8px;
 }
 
 /*
