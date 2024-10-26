@@ -14,8 +14,6 @@ export interface ProjectInfo {
     description: string
     objectives: string[]
 
-    tags: string[]
-
     links: ProjectLink[]
 }
 
@@ -36,8 +34,6 @@ const PROJECTS: ProjectInfo[] = [
 
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
-
-        tags: ["Placeholder"],
 
         links: [
             { type: "Try", name: "Asphodel", url: "https://asphodel-game.web.app/" }
@@ -60,8 +56,6 @@ const PROJECTS: ProjectInfo[] = [
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
 
-        tags: ["Placeholder"],
-
         links: []
     },
     {
@@ -80,8 +74,6 @@ const PROJECTS: ProjectInfo[] = [
 
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
-
-        tags: ["Placeholder"],
 
         links: []
     },
@@ -102,8 +94,6 @@ const PROJECTS: ProjectInfo[] = [
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
 
-        tags: ["Placeholder"],
-
         links: []
     },
     {
@@ -122,8 +112,6 @@ const PROJECTS: ProjectInfo[] = [
 
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
-
-        tags: ["Placeholder"],
 
         links: []
     },
@@ -144,8 +132,6 @@ const PROJECTS: ProjectInfo[] = [
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
 
-        tags: ["Placeholder"],
-
         links: []
     },
     {
@@ -165,8 +151,6 @@ const PROJECTS: ProjectInfo[] = [
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
 
-        tags: ["Placeholder"],
-
         links: []
     },
     {
@@ -185,8 +169,6 @@ const PROJECTS: ProjectInfo[] = [
 
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
-
-        tags: ["Placeholder"],
 
         links: []
     }

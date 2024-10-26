@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Fade, Slide } from "react-awesome-reveal";
 import { Switch } from '@mui/material';
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCodeSlash, BsGithub, BsLink45Deg } from "react-icons/bs";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCodeSlash, BsGithub, BsLink45Deg, BsZoomIn } from "react-icons/bs";
 
 import SectionHeader from "../section-features/SectionHeader";
 import PROJECTS, { ProjectInfo } from "./ProjectData";
@@ -79,7 +79,7 @@ function ProjectTitle({ projectData, projectIndex }: ProjectProps) {
     return (
         <div className="projects-header-section flex flex-col">
             <div className="projects-header-title averia-serif">{currProject.title}</div>
-            <div className="projects-header-status montserrat text-gray-500 font-bold">{`[${currProject.status}]`}</div>
+            <div className="projects-header-status montserrat text-gray-500 font-bold">{`Status: [${currProject.status}]`}</div>
         </div>
     );
 }
@@ -113,7 +113,10 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
         return (
             <div className="project-display-images flex items-center">
                 {currProject.images.map((urlModule, index) => (
-                    <img key={index} src={urlModule.default} className="project-img" onClick={() => setFocus(index)} />
+                    <div key={index} className="relative project-img-container">
+                        <img src={urlModule.default} className="project-img" onClick={() => setFocus(index)} />
+                        <BsZoomIn className="project-img-zoom" />
+                    </div>
                 ))}
             </div>
         );
@@ -127,7 +130,6 @@ function ProjectDetails({ projectData, projectIndex, setProjectIndex }: ProjectP
                 <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
             </div>
             <div className="projects-details-misc w-1/2 flex flex-col">
-                <ProjectTags projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
                 <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
             </div>
         </div>
@@ -161,21 +163,6 @@ function ProjectDescription({ projectData, projectIndex }: ProjectProps) {
                     </div>
                 </>
             }
-        </>
-    );
-}
-
-function ProjectTags({ projectData, projectIndex }: ProjectProps) {
-    const currProject = projectData[projectIndex - 1];
-
-    return (
-        <>
-            <div className="projects-details-title">TAGS</div>
-            <div className="projects-tags-container">
-                {currProject.tags.map((obj, index) => (
-                    <span key={index} className="projects-tag">{obj}</span>
-                ))}
-            </div>
         </>
     );
 }

@@ -1,6 +1,6 @@
 import SiteLogo from '@assets/korvue-3.svg';
 
-import { BsCollectionFill, BsFillInfoCircleFill, BsFillTelephoneFill, BsTools } from "react-icons/bs";
+import { BsCollectionFill, BsEnvelopeAtFill, BsFillInfoCircleFill, BsTools } from "react-icons/bs";
 
 export default function NavBar(props: any) {
     return (
@@ -36,7 +36,7 @@ function ToolBar() {
                 <span className="navbar-tool-label">Tools</span>
             </a>
             <a href="#contact" className="navbar-tools mr-4">
-                <BsFillTelephoneFill className="navbar-tool-icon" />
+                <BsEnvelopeAtFill className="navbar-tool-icon" />
                 <span className="navbar-tool-label">Contact</span>
             </a>
         </div>

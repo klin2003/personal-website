@@ -54,20 +54,52 @@ CSS Keyframe Animations
     }
 }
 
+@keyframes pulse {
+
+    0%,
+    100% {
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 25px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 1);
+    }
+}
+
 /*
 CSS for Overlay Layer
 */
+
 .full-screen-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    
+
     overflow: hidden;
-    
+
     width: 100vw;
     height: 100vh;
 
     background-color: rgba(0, 0, 0, 0.75);
+}
+
+.full-screen-overlay-exit-text {
+    color: white;
+
+    font-weight: 600;
+    font-size: 36px;
+    font-family: "Fira Code", monospace;
+
+    padding-top: 24px;
+
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+}
+
+.full-screen-overlay-arrows {
+    margin: 24px;
+
+    cursor: pointer;
 }
 
 /*
@@ -276,8 +308,6 @@ CSS for About Section
 
 
 @media (max-width: 1000px) {
-
-    /* Change layout for smaller screens */
     .spotify-form {
         flex-direction: column;
     }
@@ -288,8 +318,6 @@ CSS for About Section
 }
 
 @media (min-width: 1001px) {
-
-    /* Change layout for smaller screens */
     .spotify-form {
         flex-direction: row;
     }
@@ -327,6 +355,12 @@ CSS for Projects Section
     width: 100%;
 
     padding: 16px;
+}
+
+@media (min-width: 1201px) {
+    .projects .section-header {
+        min-width: 280px;
+    }
 }
 
 .projects .section-header .header-title {
@@ -385,27 +419,61 @@ CSS for Projects Section
     margin: 32px 0px 16px 0px
 }
 
+.project-img-container {
+    display: flex;
+    flex-shrink: 0; 
+
+    margin-right: 48px;
+}
+
 .project-img {
-    max-height: 256px;
+    height: 256px;
     width: auto;
-    height: auto;
 
     border-radius: 20px;
+    border: 2px solid transparent;
     box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.3);
 }
 
+.project-img-container:hover .project-img {
+    opacity: 0.8;
+    cursor: pointer;
+
+    border: 2px solid white
+}
+
+.project-img-zoom {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 24px;
+    height: 24px;
+
+    margin: 12px 12px 0px 0px;
+
+    opacity: 0;
+}
+
+.project-img-container:hover .project-img-zoom {
+    opacity: 1.0;
+}
+
 .project-focus-img {
-    max-height: 720px;
+    max-height: 512px;
     width: auto;
     height: auto;
 
     border-radius: 20px;
+    border: 2px solid transparent;
     box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.3);
 }
 
 .project-img:hover {
     opacity: 0.8;
     cursor: pointer;
+
+    border: 2px solid white
 }
 
 .projects-details-title {
