@@ -55,6 +55,22 @@ CSS Keyframe Animations
 }
 
 /*
+CSS for Overlay Layer
+*/
+.full-screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    overflow: hidden;
+    
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+/*
 CSS for BG
 */
 
@@ -378,6 +394,20 @@ CSS for Projects Section
     box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.3);
 }
 
+.project-focus-img {
+    max-height: 720px;
+    width: auto;
+    height: auto;
+
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.3);
+}
+
+.project-img:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
 .projects-details-title {
     color: #5f9bad;
 
@@ -410,7 +440,7 @@ CSS for Tools Section
 */
 
 #tools {
-    background-color: #a5e2ea;
+    background-color: #addbe2;
     padding: 16px;
 }
 

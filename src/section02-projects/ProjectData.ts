@@ -62,9 +62,7 @@ const PROJECTS: ProjectInfo[] = [
 
         tags: ["Placeholder"],
 
-        links: [
-            { type: "Try", name: "Placeholder", url: "" }
-        ]
+        links: []
     },
     {
         title: "Minecraft Bingo",
@@ -85,9 +83,7 @@ const PROJECTS: ProjectInfo[] = [
 
         tags: ["Placeholder"],
 
-        links: [
-            { type: "Try", name: "Placeholder", url: "" }
-        ]
+        links: []
     },
     {
         title: "Fake Stack Overflow",
@@ -108,9 +104,7 @@ const PROJECTS: ProjectInfo[] = [
 
         tags: ["Placeholder"],
 
-        links: [
-            { type: "Try", name: "Placeholder", url: "" }
-        ]
+        links: []
     },
     {
         title: "Time2Learn",
@@ -131,9 +125,7 @@ const PROJECTS: ProjectInfo[] = [
 
         tags: ["Placeholder"],
 
-        links: [
-            { type: "Try", name: "Placeholder", url: "" }
-        ]
+        links: []
     },
     {
         title: "C Memory Allocator",
@@ -154,9 +146,7 @@ const PROJECTS: ProjectInfo[] = [
 
         tags: ["Placeholder"],
 
-        links: [
-            { type: "Try", name: "Placeholder", url: "" }
-        ]
+        links: []
     },
     {
         title: "Graphs in MIPs",
@@ -177,9 +167,7 @@ const PROJECTS: ProjectInfo[] = [
 
         tags: ["Placeholder"],
 
-        links: [
-            { type: "Try", name: "Placeholder", url: "" }
-        ]
+        links: []
     },
     {
         title: "Totally Not Crossy Road",
@@ -200,9 +188,7 @@ const PROJECTS: ProjectInfo[] = [
 
         tags: ["Placeholder"],
 
-        links: [
-            { type: "Try", name: "Placeholder", url: "" }
-        ]
+        links: []
     }
 ]
 
