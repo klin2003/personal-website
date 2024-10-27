@@ -39,7 +39,7 @@ export default function Overlay(props: any) {
                         <Fade key={props.focusState}>
                             <img src={DATA[props.projectIndex - 1].images[props.focusState].default} className="project-focus-img" />
                         </Fade>
-                        <span className="full-screen-overlay-exit-text" onClick={() => props.setFocus(-1)}>Click to Exit</span>
+                        <span className="full-screen-overlay-exit-text" onClick={() => props.setFocus(-1)}>Click Here to Exit</span>
                     </div>
                     <div>
                         <BsArrowRight className="full-screen-overlay-arrows" size={36} color="white" onClick={() => changeFocus(true)} />

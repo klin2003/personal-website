@@ -359,7 +359,7 @@ CSS for Projects Section
 
 @media (min-width: 1201px) {
     .projects .section-header {
-        min-width: 280px;
+        min-width: 300px;
     }
 }
 
@@ -415,13 +415,9 @@ CSS for Projects Section
     margin-bottom: 32px;
 }
 
-.project-display-images {
-    margin: 32px 0px 16px 0px
-}
-
 .project-img-container {
     display: flex;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 
     margin-right: 48px;
 }
@@ -430,16 +426,33 @@ CSS for Projects Section
     height: 256px;
     width: auto;
 
+    margin-bottom: 16px;
+
     border-radius: 20px;
     border: 2px solid transparent;
     box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.3);
+
+    transition: transform 0.5 ease-in-out;
 }
 
 .project-img-container:hover .project-img {
-    opacity: 0.8;
+    opacity: 0.7;
     cursor: pointer;
 
     border: 2px solid white
+}
+
+.project-img-index {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    color: white;
+    font-size: 24px;
+
+    margin: 8px 0px 0px 12px;
+
+    opacity: 0;
 }
 
 .project-img-zoom {
@@ -455,7 +468,7 @@ CSS for Projects Section
     opacity: 0;
 }
 
-.project-img-container:hover .project-img-zoom {
+.project-img-container:hover .project-img-zoom, .project-img-container:hover .project-img-index {
     opacity: 1.0;
 }
 
@@ -483,24 +496,7 @@ CSS for Projects Section
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
 
-    margin-bottom: 16px;
-}
-
-.projects-tags-container {
-    margin-bottom: 32px;
-}
-
-.projects-tag {
-    color: #000000;
-    background-color: #93c4d0;
-
-    font-weight: 600px;
-
-    border: 1px black solid;
-    border-radius: 64px;
-    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.5);
-
-    padding: 4px 8px;
+    margin-bottom: 12px;
 }
 
 /*

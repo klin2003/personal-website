@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-import { Fade, Slide } from "react-awesome-reveal";
-import { Switch } from '@mui/material';
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCodeSlash, BsGithub, BsLink45Deg, BsZoomIn } from "react-icons/bs";
+import { Fade } from "react-awesome-reveal";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCaretLeft, BsCaretRight, BsCodeSlash, BsGithub, BsLink45Deg, BsZoomIn } from "react-icons/bs";
 
 import SectionHeader from "../section-features/SectionHeader";
 import PROJECTS, { ProjectInfo } from "./ProjectData";
@@ -89,9 +88,8 @@ function ProjectDisplay({ projectData, projectIndex, setProjectIndex, setFocus }
 
     return (
         <div className="projects-display-section flex flex-col overflow-hidden">
-            <Slide key={projectIndex} direction="right">
-                <ProjectImageSlides projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} setFocus={setFocus} />
-            </Slide>
+            <ProjectImageSlides projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} setFocus={setFocus} />
+            
             <div className="italic montserrat">
                 <span className="underline">Last Updated</span>
                 <span>{`: ${currProject.last_updated}`}</span>
@@ -103,6 +101,23 @@ function ProjectDisplay({ projectData, projectIndex, setProjectIndex, setFocus }
 function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedProjectProps) {
     const currProject = projectData[projectIndex - 1];
 
+    const maxIndex = currProject.images.length;
+    const [indexFactor, setIndexFactor] = useState(0);
+    const [imagesArr, setImagesArr] = useState(currProject.images);
+
+    const modifyImagesArr = (inc: boolean) => {
+        if(inc){
+            setIndexFactor(indexFactor + 1);
+            setImagesArr([...imagesArr.slice(1), imagesArr[0]]);
+        } else {
+            if(indexFactor == 0)
+                setIndexFactor(maxIndex - 1)
+            else
+                setIndexFactor(indexFactor - 1);
+            setImagesArr([imagesArr[imagesArr.length - 1], ...imagesArr.slice(0, -1)]);
+        }
+    }
+
     if (currProject.images.length == 0) {
         return (
             <div className="project-display-images flex items-center">
@@ -111,14 +126,23 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
         )
     } else {
         return (
-            <div className="project-display-images flex items-center">
-                {currProject.images.map((urlModule, index) => (
-                    <div key={index} className="relative project-img-container">
-                        <img src={urlModule.default} className="project-img" onClick={() => setFocus(index)} />
-                        <BsZoomIn className="project-img-zoom" />
+            <>
+                <div className="flex flex-row mt-4 mb-4">
+                    <BsCaretLeft size={32} className="cursor-pointer mr-4" onClick={() => modifyImagesArr(false)}/>
+                    <BsCaretRight size={32} className="cursor-pointer ml-4" onClick={() => modifyImagesArr(true)}/>
+                </div>
+                <Fade key={`${projectIndex}-${indexFactor}`}>
+                    <div className="project-display-images flex items-center">
+                        {imagesArr.map((urlModule, index) => (
+                            <div key={index} className="relative project-img-container">
+                                <img src={urlModule.default} className="project-img" onClick={() => setFocus((index + indexFactor) % maxIndex)} />
+                                <span className="project-img-index">{`${(index + indexFactor) % maxIndex}`}</span>
+                                <BsZoomIn className="project-img-zoom" />
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
+                </Fade>
+            </>
         );
     }
 }
@@ -128,41 +152,39 @@ function ProjectDetails({ projectData, projectIndex, setProjectIndex }: ProjectP
         <div className="projects-details-section flex flex-row">
             <div className="projects-details-description w-1/2">
                 <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
+                <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
             </div>
             <div className="projects-details-misc w-1/2 flex flex-col">
-                <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
+                <ProjectObjectives projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
             </div>
         </div>
     );
 }
 
 function ProjectDescription({ projectData, projectIndex }: ProjectProps) {
-    const [viewDescription, toggleDescription] = useState(true);
     const currProject = projectData[projectIndex - 1];
 
     return (
         <>
-            <Switch checked={!viewDescription} onChange={() => { toggleDescription(!viewDescription) }} />
-            {viewDescription &&
-                <>
-                    <div className="projects-details-title">DESCRIPTION</div>
-                    <div className="projects-description-content source-code-pro">{currProject.description}</div>
-                </>
-            }
+            <div className="projects-details-title">DESCRIPTION</div>
+            <div className="projects-description-content source-code-pro mb-10">{currProject.description}</div>
+        </>
+    );
+}
 
-            {!viewDescription &&
-                <>
-                    <div className="projects-details-title">OBJECTIVES</div>
+function ProjectObjectives({ projectData, projectIndex }: ProjectProps) {
+    const currProject = projectData[projectIndex - 1];
 
-                    <div className="projects-description-content source-code-pro">
-                        {currProject.objectives.map((obj, index) => (
-                            <span key={index} className="projects-objective-listing">
-                                {`- ${obj}`}
-                            </span>
-                        ))}
-                    </div>
-                </>
-            }
+    return (
+        <>
+            <div className="projects-details-title">OBJECTIVES</div>
+            <div className="projects-description-content source-code-pro">
+                {currProject.objectives.map((obj, index) => (
+                    <span key={index} className="projects-objective-listing">
+                        {`- ${obj}`}
+                    </span>
+                ))}
+            </div>
         </>
     );
 }
