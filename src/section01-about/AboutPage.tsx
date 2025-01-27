@@ -15,20 +15,19 @@ export default function AboutPage(props: any) {
                 </div><br/>
                 
                 <div className="about-description-paragraph">
-                    I am currently a Software Engineering student based in New York. 
-                    My passions in the field include <span className="about-description-paragraph-ul">Game Development</span> and <span className="about-description-paragraph-ul">Web Development</span>.
+                    I am a Software Engineer based in New York focusing
+                    on <span className="about-description-paragraph-ul">Game Development</span> and <span className="about-description-paragraph-ul">Web Development</span>.
+                    Over the course of my academic career, I have dabbled in multiple fields including Web Dev, Game Dev, and <span className="about-description-paragraph-ul">Natural Language Processing</span>.
                 </div><br/>
 
                 <div className="about-description-paragraph">
-                    As a student, I am currently taking a course on <span className="about-description-paragraph-ul">Natural Language Processing</span> and
-                    am double majoring in <span className="about-description-paragraph-ul">Applied Mathematics and Statistics</span>. 
-                </div><br/>
+                    Having double majored in both <span className="about-description-paragraph-ul">Computer Science</span> and <span className="about-description-paragraph-ul">Applied Mathematics and Statistics</span>,
+                    I'm open to exploring various fields and always excited to learn new technologies and frameworks.
+                </div><br />
                 
                 <div className="about-description-paragraph">
-                    I'm always open and eager to learn new technologies and frameworks.
-                    Currently, I am seeking an entry-level position or internship
-                    where I can continue to expand upon my skills. Please feel free
-                    to explore some of my past projects!
+                    Currently seeking an entry-level position or internship. 
+                    Feel free to contact me or browse some of my past projects below!
                 </div>
             </div>
             <div className="about-spotify flex flex-col items-center">

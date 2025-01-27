@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Input, Button } from "@mui/material";
 
 function SpotifyEmbed(props: any) {
     return (
@@ -23,7 +24,7 @@ function SpotifyURLForm(props: any) {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if(formInput.length == 0)
+        if (formInput.length == 0)
             return;
 
         if (formInput.startsWith("https://open.spotify.com/playlist/")) {
@@ -39,13 +40,26 @@ function SpotifyURLForm(props: any) {
 
     return (
         <form onSubmit={handleSubmit} className="spotify-form">
-            <input className="spotify-form-input"
+            <Input className="spotify-form-input"
                 type="text"
                 value={formInput}
                 onChange={handleInputChange}
                 placeholder="Enter Playlist ID or URL:"
+                sx={{
+                    fontSize: '14px', // Adjust font size
+                    padding: '2px 8px',   // Optional: Adjust padding
+                }}
             />
-            <button className="spotify-form-submit" type="submit">Submit</button>
+            <Button className="spotify-form-submit"
+                variant="contained"
+                type="submit"
+                sx={{
+                    fontSize: '12px', // Adjust font size
+                    padding: '4px 8px',   // Optional: Adjust padding
+                }}
+            >
+                Submit
+            </Button>
         </form>
     );
 }

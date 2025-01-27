@@ -30,7 +30,7 @@ function App() {
     <div className="relative">
       <img className="bg-image" src={BackgroundImage}></img>
 
-      <NavBar width={windowWidth} />
+      <NavBar />
 
       <AboutPage width={windowWidth} />
       <ProjectsPage width={windowWidth} projectIndex={projectIndex} setProjectIndex={setProjectIndex} setFocus={setFocusState} />

@@ -16,7 +16,7 @@ export default function ContactPage(props: any) {
 
                     <div className="contact-entry w-fit">
                         <BsLinkedin className="contact-entry-icon"/>
-                        <span className="contact-entry-text source-code-pro">LinkedIn: <a className="classic-anchor2" href="https://www.linkedin.com/in/kelvin-lin-J2003/" target="_blank">in/kelvin-lin-J2003/</a></span>
+                        <span className="contact-entry-text source-code-pro">LinkedIn: <a className="classic-anchor2" href="https://www.linkedin.com/in/kelvin-lin-J2003/" target="_blank">in/kelvin-lin-J2003</a></span>
                     </div>
 
                     <div className="pb-6"></div>

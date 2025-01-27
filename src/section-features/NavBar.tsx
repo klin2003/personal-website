@@ -1,21 +1,19 @@
-import SiteLogo from '@assets/korvue-3.svg';
+import { BsCodeSlash, BsCollectionFill, BsEnvelopeAtFill, BsFillInfoCircleFill, BsTools } from "react-icons/bs";
 
-import { BsCollectionFill, BsEnvelopeAtFill, BsFillInfoCircleFill, BsTools } from "react-icons/bs";
-
-export default function NavBar(props: any) {
+export default function NavBar() {
     return (
         <div className="navbar">
-            <Logo width={props.width}/>
+            <Logo />
             <ToolBar />
         </div>
     );
 };
 
-function Logo(props: any) {
+function Logo() {
     return (
         <div className="flex items-center">
-            <img className="navbar-logo" src={SiteLogo} alt="logo"></img>
-            <div className="navbar-title">{(props.width > 900) ? "Kelvin Lin" : "Kelvin"}</div>
+            <BsCodeSlash className="navbar-logo" />
+            <div className="navbar-title">Kelvin Lin</div>
         </div>
     );
 }
