@@ -402,7 +402,8 @@ CSS for Projects Section
     margin-right: 48px;
 }
 
-.project-img {
+.project-img,
+.project-img-none {
     height: 256px;
     width: auto;
 
@@ -410,9 +411,12 @@ CSS for Projects Section
 
     border-radius: 20px;
     border: 2px solid transparent;
-    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.3);
 
     transition: transform 0.5 ease-in-out;
+}
+
+.project-img-none {
+    margin: 20px 0px;
 }
 
 .project-img-container:hover .project-img {

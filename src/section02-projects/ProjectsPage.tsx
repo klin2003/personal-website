@@ -5,6 +5,7 @@ import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCaretLeft, BsCaretRigh
 
 import SectionHeader from "../section-features/SectionHeader";
 import PROJECTS, { ProjectInfo } from "./ProjectData";
+import NoImages from '../assets/project-images/NoImages.png';
 
 interface ProjectProps {
     projectData: ProjectInfo[],
@@ -121,7 +122,7 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
     if (currProject.images.length == 0) {
         return (
             <div className="project-display-images flex items-center">
-                No Images Found
+                <img src={NoImages} className="project-img-none" /> 
             </div>
         )
     } else {
