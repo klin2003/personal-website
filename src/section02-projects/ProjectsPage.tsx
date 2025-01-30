@@ -208,7 +208,7 @@ function ProjectLinks({ projectData, projectIndex }: ProjectProps) {
                         {obj.type == 'GitHub' && (
                             <>
                                 <BsGithub size={24} className="mr-2" />
-                                <span className="source-code-pro">Github:&nbsp;</span>
+                                <span className="source-code-pro">GitHub Repo:&nbsp;</span>
                             </>
                         )}
                         {obj.type == 'Code' && (

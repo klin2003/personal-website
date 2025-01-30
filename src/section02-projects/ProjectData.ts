@@ -132,7 +132,9 @@ const PROJECTS: ProjectInfo[] = [
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
 
-        links: []
+        links: [
+            { type: "GitHub", name: "320 Memory Allocator", url: "https://github.com/klin2003/320-memory-allocator" }
+        ]
     },
     {
         title: "Graphs in MIPs",
@@ -151,7 +153,9 @@ const PROJECTS: ProjectInfo[] = [
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
 
-        links: []
+        links: [
+            { type: "GitHub", name: "220 MIPs Graphs", url: "https://github.com/klin2003/220-mips-graphs" }
+        ]
     },
     {
         title: "Totally Not Crossy Road",
@@ -170,7 +174,9 @@ const PROJECTS: ProjectInfo[] = [
         description: "Placeholder Description",
         objectives: ["Placeholder Objective"],
 
-        links: []
+        links: [
+            { type: "GitHub", name: "Totally Not Crossy Road", url: "https://github.com/klin2003/totally-not-crossy-road" }
+        ]
     }
 ]
 
