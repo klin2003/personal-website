@@ -18,12 +18,10 @@ type ExtendedProjectProps = ProjectProps & {
 };
 
 export default function ProjectsPage(props: any) {
-    const [projectIndex, setProjectIndex] = useState(1);
-
     const DATA: ProjectProps = {
         projectData: PROJECTS,
-        projectIndex: projectIndex,
-        setProjectIndex: setProjectIndex
+        projectIndex: props.projectIndex,
+        setProjectIndex: props.setProjectIndex
     }
 
     return (
@@ -32,7 +30,7 @@ export default function ProjectsPage(props: any) {
             <div className="projects-container flex flex-col text-white">
                 <ProjectHeader projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
 
-                <Fade key={projectIndex}>
+                <Fade key={props.projectIndex}>
                     <ProjectTitle projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
                     <ProjectDisplay projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} setFocus={props.setFocus} />
                     <ProjectDetails projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
