@@ -1,4 +1,4 @@
-import { BsCodeSlash, BsCollectionFill, BsEnvelopeAtFill, BsFillInfoCircleFill, BsTools } from "react-icons/bs";
+import { BsCodeSlash, BsCollectionFill, BsFillInfoCircleFill, BsTools } from "react-icons/bs";
 
 export default function NavBar() {
     return (
@@ -29,13 +29,9 @@ function ToolBar() {
                 <BsCollectionFill className="navbar-tool-icon" />
                 <span className="navbar-tool-label">Projects</span>
             </a>
-            <a href="#tools" className="navbar-tools">
+            <a href="#tools" className="navbar-tools mr-4">
                 <BsTools className="navbar-tool-icon" />
                 <span className="navbar-tool-label">Tools</span>
-            </a>
-            <a href="#contact" className="navbar-tools mr-4">
-                <BsEnvelopeAtFill className="navbar-tool-icon" />
-                <span className="navbar-tool-label">Contact</span>
             </a>
         </div>
     );

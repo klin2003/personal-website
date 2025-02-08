@@ -1,5 +1,5 @@
 export interface ProjectLink {
-    type: "GitHub" | "Code" | "Try"
+    type: "GitHub" | "Try"
     name: string
     url: string
 }
@@ -12,12 +12,31 @@ export interface ProjectInfo {
     images: any[]
 
     description: string
-    objectives: string[]
 
     links: ProjectLink[]
 }
 
 const PROJECTS: ProjectInfo[] = [
+    {
+        title: "Lobos Client",
+        status: "Plans for Revision",
+        
+        last_updated: "Feb 6, 2025",
+        images: Object.values(
+            import.meta.glob(`@assets/project-images/LobosClient/*.png`, {
+                eager: true,
+                query: {
+                  type: 'url',
+                },
+            }),
+        ),
+
+        description: "Placeholder Description",
+
+        links: [
+            { type: "Try", name: "Lobos Client", url: "https://lobos-client.vercel.app/" }
+        ]
+    },
     {
         title: "Asphodel Game",
         status: "Plans for Revision",
@@ -33,7 +52,6 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-        objectives: ["Placeholder Objective"],
 
         links: [
             { type: "Try", name: "Asphodel", url: "https://asphodel-game.web.app/" }
@@ -54,7 +72,6 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-        objectives: ["Placeholder Objective"],
 
         links: []
     },
@@ -73,7 +90,6 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-        objectives: ["Placeholder Objective"],
 
         links: []
     },
@@ -92,7 +108,6 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-        objectives: ["Placeholder Objective"],
 
         links: []
     },
@@ -111,7 +126,6 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-        objectives: ["Placeholder Objective"],
 
         links: []
     },
@@ -130,7 +144,6 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-        objectives: ["Placeholder Objective"],
 
         links: [
             { type: "GitHub", name: "320 Memory Allocator", url: "https://github.com/klin2003/320-memory-allocator" }
@@ -151,7 +164,6 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-        objectives: ["Placeholder Objective"],
 
         links: [
             { type: "GitHub", name: "220 MIPs Graphs", url: "https://github.com/klin2003/220-mips-graphs" }
@@ -172,7 +184,6 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-        objectives: ["Placeholder Objective"],
 
         links: [
             { type: "GitHub", name: "Totally Not Crossy Road", url: "https://github.com/klin2003/totally-not-crossy-road" }

@@ -9,7 +9,6 @@ import Footer from './section-features/Footer';
 import AboutPage from './section01-about/AboutPage';
 import ProjectsPage from './section02-projects/ProjectsPage';
 import ToolsPage from './section03-tools/ToolsPage';
-import ContactPage from './section04-contact/ContactPage';
 import Overlay from './section-features/Overlay';
 
 function App() {
@@ -35,7 +34,6 @@ function App() {
       <AboutPage width={windowWidth} />
       <ProjectsPage width={windowWidth} projectIndex={projectIndex} setProjectIndex={setProjectIndex} setFocus={setFocusState} />
       <ToolsPage width={windowWidth} />
-      <ContactPage width={windowWidth} />
 
       {(focusState >= 0) && <Overlay projectIndex={projectIndex} setFocus={setFocusState} focusState={focusState} />}
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { Fade } from "react-awesome-reveal";
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCaretLeft, BsCaretRight, BsCodeSlash, BsGithub, BsLink45Deg, BsZoomIn } from "react-icons/bs";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCaretLeft, BsCaretRight, BsGithub, BsLink45Deg, BsZoomIn } from "react-icons/bs";
 
 import SectionHeader from "../section-features/SectionHeader";
 import PROJECTS, { ProjectInfo } from "./ProjectData";
@@ -148,14 +148,9 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
 
 function ProjectDetails({ projectData, projectIndex, setProjectIndex }: ProjectProps) {
     return (
-        <div className="projects-details-section flex flex-row">
-            <div className="projects-details-description w-1/2">
-                <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
-                <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
-            </div>
-            <div className="projects-details-misc w-1/2 flex flex-col">
-                <ProjectObjectives projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
-            </div>
+        <div className="projects-details-section">
+            <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
+            <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
         </div>
     );
 }
@@ -167,23 +162,6 @@ function ProjectDescription({ projectData, projectIndex }: ProjectProps) {
         <>
             <div className="projects-details-title">DESCRIPTION</div>
             <div className="projects-description-content source-code-pro mb-10">{currProject.description}</div>
-        </>
-    );
-}
-
-function ProjectObjectives({ projectData, projectIndex }: ProjectProps) {
-    const currProject = projectData[projectIndex - 1];
-
-    return (
-        <>
-            <div className="projects-details-title">OBJECTIVES</div>
-            <div className="projects-description-content source-code-pro">
-                {currProject.objectives.map((obj, index) => (
-                    <span key={index} className="projects-objective-listing">
-                        {`- ${obj}`}
-                    </span>
-                ))}
-            </div>
         </>
     );
 }
@@ -207,12 +185,6 @@ function ProjectLinks({ projectData, projectIndex }: ProjectProps) {
                             <>
                                 <BsGithub size={24} className="mr-2" />
                                 <span className="source-code-pro">GitHub Repo:&nbsp;</span>
-                            </>
-                        )}
-                        {obj.type == 'Code' && (
-                            <>
-                                <BsCodeSlash size={24} className="mr-2" />
-                                <span className="source-code-pro">Code Snippets:&nbsp;</span>
                             </>
                         )}
                         {obj.type == 'Try' && (
