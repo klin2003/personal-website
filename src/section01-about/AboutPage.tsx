@@ -7,7 +7,7 @@ export default function AboutPage(props: any) {
             <SectionHeader className="about" entryNumber={1} titleLabel={(props.width > 1200) ? "About" : ""} />
             <div className="about-description flex flex-col justify-start">
                 <div className="about-description-heading flex flex-row whitespace-pre">
-                    <span className="about-description-h1"><span>Hey</span></span>
+                    <span className="about-description-h1 bounce-text"><span>Hey</span></span>
                     <span>, I'm </span><span className="about-description-h2">Kelvin</span><span>!</span>
                 </div><br />
 
