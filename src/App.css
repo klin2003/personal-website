@@ -18,16 +18,6 @@ CSS Keyframe Animations
     }
 }
 
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-
-    100% {
-        background-position: 200% 0;
-    }
-}
-
 @keyframes wobble {
     0% {
         transform: rotate(0deg);
@@ -79,7 +69,6 @@ CSS Keyframe Animations
 }
 
 @keyframes pulse {
-
     0%,
     100% {
         text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5);
@@ -87,6 +76,21 @@ CSS Keyframe Animations
 
     50% {
         text-shadow: 0 0 25px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 1);
+    }
+}
+
+@keyframes pulseUnderline {
+    0% {
+        text-decoration-thickness: 2px;
+        text-decoration-color: rgba(255, 0, 0, 0.5); /* Adjust color if needed */
+    }
+    50% {
+        text-decoration-thickness: 4px;
+        text-decoration-color: rgba(255, 0, 0, 1); /* Stronger color on pulse */
+    }
+    100% {
+        text-decoration-thickness: 2px;
+        text-decoration-color: rgba(255, 0, 0, 0.5);
     }
 }
 
@@ -254,30 +258,15 @@ CSS for About Section
 
     width: fit-content;
 
-    font-size: 48px;
-    font-weight: 600;
     font-family: "Raleway", sans-serif;
 
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-
     color: black;
-}
-
-.about-description-h2 {
-    color: transparent;
-    text-shadow: 0px 0px;
-
-    background: linear-gradient(45deg,
-            #b00000 25%,
-            #d00000 50%,
-            #f00000 75%);
-
-    background-size: 200% auto;
-    background-position: 0% 0;
-    transition: background-position 0.5s ease;
-
-    background-clip: text;
-    -webkit-background-clip: text;
+    text-shadow: 
+        -1px -1px 2px rgba(246, 217, 190, 0.4),
+         1px -1px 2px rgba(246, 217, 190, 0.4),
+        -1px  1px 2px rgba(246, 217, 190, 0.4),
+         1px  1px 2px rgba(246, 217, 190, 0.4),
+         2px  2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .about-description-heading {
@@ -288,8 +277,23 @@ CSS for About Section
     animation: wobble 1.5s ease-out;
 }
 
-.about-description-heading:hover .about-description-h2 {
-    animation: shimmer 1.5s infinite linear;
+.about-description-h1 {
+    font-size: 96px;
+    padding-right: 24px;
+}
+
+.about-description-h2 {
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.about-description-h2-name {
+    color: #0026ad;
+}
+
+.about-description-h3 {
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .about-description-paragraph {

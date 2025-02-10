@@ -7,14 +7,16 @@ export default function AboutPage(props: any) {
             <SectionHeader className="about" entryNumber={1} titleLabel={(props.width > 1200) ? "About" : ""} />
             <div className="about-description flex flex-col justify-start">
                 <div className="about-description-heading flex flex-row whitespace-pre">
-                    <span className="about-description-h1 bounce-text"><span>Hey</span></span>
-                    <span>, I'm </span><span className="about-description-h2">Kelvin</span><span>!</span>
-                </div><br />
+                    <div className="about-description-h1 allura text-64xl">Hey,</div>
+                    <div className="flex flex-col justify-center">
+                        <span className="about-description-h2">I'm <span className="about-description-h2-name">Kelvin</span></span>
+                        <span className="about-description-h3"> NY-based Software Engineer</span>
+                    </div>
+                </div>
 
                 <div className="about-description-paragraph">
-                    I am a Software Engineer based in New York focusing
-                    on <span className="about-description-paragraph-ul">Game Development</span> and <span className="about-description-paragraph-ul">Web Development</span>.
-                    Over the course of my academic career, I have dabbled in multiple fields including Web Dev, Game Dev, and <span className="about-description-paragraph-ul">Natural Language Processing</span>.
+                    My personal passions in the Software Engineering field are <span className="about-description-paragraph-ul">Game Development</span> and <span className="about-description-paragraph-ul">Web Development</span>.
+                    Besides these two focuses, I have also dabbled in <span className="about-description-paragraph-ul">Natural Language Processing</span> over the course of my academic career.
                 </div><br />
 
                 <div className="about-description-paragraph">
