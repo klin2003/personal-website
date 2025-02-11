@@ -12,7 +12,7 @@ export interface ProjectInfo {
     images: any[]
 
     description: string
-
+    tags: string[]
     links: ProjectLink[]
 }
 
@@ -32,7 +32,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-
+        tags: [],
         links: [
             { type: "Try", name: "Lobos Client", url: "https://lobos-client.vercel.app/" }
         ]
@@ -52,7 +52,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-
+        tags: [],
         links: [
             { type: "Try", name: "Asphodel", url: "https://asphodel-game.web.app/" }
         ]
@@ -72,7 +72,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-
+        tags: [],
         links: []
     },
     {
@@ -90,7 +90,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-
+        tags: [],
         links: []
     },
     {
@@ -108,7 +108,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-
+        tags: [],
         links: []
     },
     {
@@ -126,7 +126,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-
+        tags: [],
         links: []
     },
     {
@@ -144,7 +144,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-
+        tags: [],
         links: [
             { type: "GitHub", name: "320 Memory Allocator", url: "https://github.com/klin2003/320-memory-allocator" }
         ]
@@ -164,7 +164,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-
+        tags: [],
         links: [
             { type: "GitHub", name: "220 MIPs Graphs", url: "https://github.com/klin2003/220-mips-graphs" }
         ]
@@ -184,7 +184,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
 
         description: "Placeholder Description",
-
+        tags: [],
         links: [
             { type: "GitHub", name: "Totally Not Crossy Road", url: "https://github.com/klin2003/totally-not-crossy-road" }
         ]

@@ -77,7 +77,7 @@ function ProjectTitle({ projectData, projectIndex }: ProjectProps) {
     return (
         <div className="projects-header-section flex flex-col">
             <div className="projects-header-title averia-serif">{currProject.title}</div>
-            <div className="projects-header-status montserrat text-gray-500 font-bold">{`Status: [${currProject.status}]`}</div>
+            <div className="projects-header-status montserrat text-gray-400 font-bold">{`Status: [${currProject.status}]`}</div>
         </div>
     );
 }
@@ -88,9 +88,9 @@ function ProjectDisplay({ projectData, projectIndex, setProjectIndex, setFocus }
     return (
         <div className="projects-display-section flex flex-col overflow-hidden">
             <ProjectImageSlides projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} setFocus={setFocus} />
-            
+
             <div className="italic montserrat">
-                <span className="underline">Last Updated</span>
+                <span className="underline underline-offset-4">Last Updated</span>
                 <span>{`: ${currProject.last_updated}`}</span>
             </div>
         </div>
@@ -105,11 +105,11 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
     const [imagesArr, setImagesArr] = useState(currProject.images);
 
     const modifyImagesArr = (inc: boolean) => {
-        if(inc){
+        if (inc) {
             setIndexFactor(indexFactor + 1);
             setImagesArr([...imagesArr.slice(1), imagesArr[0]]);
         } else {
-            if(indexFactor == 0)
+            if (indexFactor == 0)
                 setIndexFactor(maxIndex - 1)
             else
                 setIndexFactor(indexFactor - 1);
@@ -120,15 +120,15 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
     if (currProject.images.length == 0) {
         return (
             <div className="project-display-images flex items-center">
-                <img src={NoImages} className="project-img-none" /> 
+                <img src={NoImages} className="project-img-none" />
             </div>
         )
     } else {
         return (
             <>
                 <div className="flex flex-row mt-4 mb-4">
-                    <BsCaretLeft size={32} className="cursor-pointer mr-4" onClick={() => modifyImagesArr(false)}/>
-                    <BsCaretRight size={32} className="cursor-pointer ml-4" onClick={() => modifyImagesArr(true)}/>
+                    <BsCaretLeft size={32} className="cursor-pointer mr-4" onClick={() => modifyImagesArr(false)} />
+                    <BsCaretRight size={32} className="cursor-pointer ml-4" onClick={() => modifyImagesArr(true)} />
                 </div>
                 <Fade key={`${projectIndex}-${indexFactor}`}>
                     <div className="project-display-images flex items-center">
@@ -150,7 +150,10 @@ function ProjectDetails({ projectData, projectIndex, setProjectIndex }: ProjectP
     return (
         <div className="projects-details-section">
             <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
-            <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
+            <div className="flex flex-col">
+                <ProjectTags projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
+                <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
+            </div>
         </div>
     );
 }
@@ -159,9 +162,30 @@ function ProjectDescription({ projectData, projectIndex }: ProjectProps) {
     const currProject = projectData[projectIndex - 1];
 
     return (
-        <>
+        <div className="projects-description-container mb-8">
             <div className="projects-details-title">DESCRIPTION</div>
-            <div className="projects-description-content source-code-pro mb-10">{currProject.description}</div>
+            <div className="projects-description-content source-code-pro mb-4">{currProject.description}</div>
+        </div>
+    );
+}
+
+function ProjectTags({ projectData, projectIndex }: ProjectProps) {
+    const currProject = projectData[projectIndex - 1];
+
+    return (
+        <>
+            <div className="projects-details-title">TECH STACK</div>
+            <div className="projects-tech-stack mb-8">
+                {currProject.tags.length == 0 && (
+                    <div className="source-code-pro">
+                        No Tech Stack Provided
+                    </div>
+                )}
+
+                {currProject.tags.map((obj, index) => (
+                    <div key={`Tag${index}`} className="flex items-center">{obj}</div>
+                ))}
+            </div>
         </>
     );
 }
@@ -172,7 +196,7 @@ function ProjectLinks({ projectData, projectIndex }: ProjectProps) {
     return (
         <>
             <div className="projects-details-title">LINKS</div>
-            <div className="`projects-links-container">
+            <div className="projects-links-container mb-4">
                 {currProject.links.length == 0 && (
                     <div className="source-code-pro">
                         No Links Available
