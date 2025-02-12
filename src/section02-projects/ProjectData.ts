@@ -10,6 +10,7 @@ export interface ProjectInfo {
     
     last_updated: string
     images: any[]
+    aspect_ratio: number
 
     description: string
     tags: string[]
@@ -30,9 +31,10 @@ const PROJECTS: ProjectInfo[] = [
                 },
             }),
         ),
+        aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
-        tags: [],
+        tags: ["JavaScript", "React", "Java", "Spring", "Python", "Pandas", "GeoPandas"],
         links: [
             { type: "Try", name: "Lobos Client", url: "https://lobos-client.vercel.app/" }
         ]
@@ -50,9 +52,10 @@ const PROJECTS: ProjectInfo[] = [
                 },
             }),
         ),
+        aspect_ratio: (1500 / 1000),
 
         description: "Placeholder Description",
-        tags: [],
+        tags: ["TypeScript", "Gulp.js", "Wolfie2D"],
         links: [
             { type: "Try", name: "Asphodel", url: "https://asphodel-game.web.app/" }
         ]
@@ -70,6 +73,7 @@ const PROJECTS: ProjectInfo[] = [
                 },
             }),
         ),
+        aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
         tags: [],
@@ -88,6 +92,7 @@ const PROJECTS: ProjectInfo[] = [
                 },
             }),
         ),
+        aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
         tags: [],
@@ -106,6 +111,7 @@ const PROJECTS: ProjectInfo[] = [
                 },
             }),
         ),
+        aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
         tags: [],
@@ -113,7 +119,7 @@ const PROJECTS: ProjectInfo[] = [
     },
     {
         title: "Time2Learn",
-        status: "Plans for Revision",
+        status: "Completed",
         
         last_updated: "Feb 11, 2024",
         images: Object.values(
@@ -124,6 +130,7 @@ const PROJECTS: ProjectInfo[] = [
                 },
             }),
         ),
+        aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
         tags: [],
@@ -142,6 +149,7 @@ const PROJECTS: ProjectInfo[] = [
                 },
             }),
         ),
+        aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
         tags: [],
@@ -162,6 +170,7 @@ const PROJECTS: ProjectInfo[] = [
                 },
             }),
         ),
+        aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
         tags: [],
@@ -182,6 +191,7 @@ const PROJECTS: ProjectInfo[] = [
                 },
             }),
         ),
+        aspect_ratio: (800 / 800),
 
         description: "Placeholder Description",
         tags: [],

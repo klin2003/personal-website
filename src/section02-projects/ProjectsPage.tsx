@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { Fade } from "react-awesome-reveal";
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCaretLeft, BsCaretRight, BsGithub, BsLink45Deg, BsZoomIn } from "react-icons/bs";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCaretLeftFill, BsCaretRightFill, BsGithub, BsLink45Deg, BsZoomIn } from "react-icons/bs";
 
 import SectionHeader from "../section-features/SectionHeader";
 import PROJECTS, { ProjectInfo } from "./ProjectData";
@@ -99,23 +99,28 @@ function ProjectDisplay({ projectData, projectIndex, setProjectIndex, setFocus }
 
 function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedProjectProps) {
     const currProject = projectData[projectIndex - 1];
-
     const maxIndex = currProject.images.length;
-    const [indexFactor, setIndexFactor] = useState(0);
-    const [imagesArr, setImagesArr] = useState(currProject.images);
 
-    const modifyImagesArr = (inc: boolean) => {
-        if (inc) {
-            setIndexFactor(indexFactor + 1);
-            setImagesArr([...imagesArr.slice(1), imagesArr[0]]);
-        } else {
-            if (indexFactor == 0)
-                setIndexFactor(maxIndex - 1)
-            else
-                setIndexFactor(indexFactor - 1);
-            setImagesArr([imagesArr[imagesArr.length - 1], ...imagesArr.slice(0, -1)]);
-        }
+    const [indexFactor, setIndexFactor] = useState(0);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [imageWidth, setImageWidth] = useState(0);
+
+    const changeIndexFactor = (inc: boolean) => {
+        if (inc)
+            setIndexFactor((indexFactor + 1) % maxIndex);
+        else
+            setIndexFactor((indexFactor - 1 + maxIndex) % maxIndex);
     }
+
+    const updateImageWidth = () => {
+        if (containerRef.current) {
+            const firstImage = containerRef.current.querySelector(".project-img-container") as HTMLDivElement;
+            if (firstImage) {
+                const rectWidth = firstImage.getBoundingClientRect().width;
+                setImageWidth(rectWidth + 48);
+            }
+        }
+    };
 
     if (currProject.images.length == 0) {
         return (
@@ -126,21 +131,23 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
     } else {
         return (
             <>
-                <div className="flex flex-row mt-4 mb-4">
-                    <BsCaretLeft size={32} className="cursor-pointer mr-4" onClick={() => modifyImagesArr(false)} />
-                    <BsCaretRight size={32} className="cursor-pointer ml-4" onClick={() => modifyImagesArr(true)} />
+                <div className="flex flex-row justify-between mt-4 mb-4">
+                    <BsCaretLeftFill size={32} className="projects-img-arrow cursor-pointer mr-4" onClick={() => changeIndexFactor(false)} />
+                    <BsCaretRightFill size={32} className="projects-img-arrow cursor-pointer ml-4" onClick={() => changeIndexFactor(true)} />
                 </div>
-                <Fade key={`${projectIndex}-${indexFactor}`}>
-                    <div className="project-display-images flex items-center">
-                        {imagesArr.map((urlModule, index) => (
-                            <div key={index} className="relative project-img-container">
-                                <img src={urlModule.default} className="project-img" onClick={() => setFocus((index + indexFactor) % maxIndex)} />
-                                <span className="project-img-index">{`${(index + indexFactor) % maxIndex}`}</span>
-                                <BsZoomIn className="project-img-zoom" />
-                            </div>
-                        ))}
-                    </div>
-                </Fade>
+                <div ref={containerRef} className="project-display-images flex items-center">
+                    {currProject.images.map((urlModule, index) => (
+                        <div
+                            key={index}
+                            className="relative project-img-container flex transition-transform duration-500 ease-in-out"
+                            style={{ transform: `translateX(-${indexFactor * imageWidth}px)` }}
+                        >
+                            <img src={urlModule.default} className="project-img" onClick={() => setFocus((index + indexFactor) % maxIndex)} onLoad={updateImageWidth} />
+                            <span className="project-img-index">{`${(index + indexFactor) % maxIndex}`}</span>
+                            <BsZoomIn className="project-img-zoom cursor-pointer" onClick={() => setFocus((index + indexFactor) % maxIndex)} />
+                        </div>
+                    ))}
+                </div>
             </>
         );
     }
@@ -149,8 +156,10 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
 function ProjectDetails({ projectData, projectIndex, setProjectIndex }: ProjectProps) {
     return (
         <div className="projects-details-section">
-            <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
-            <div className="flex flex-col">
+            <div className="flex-1">
+                <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
+            </div>
+            <div className="flex flex-col flex-1">
                 <ProjectTags projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
                 <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
             </div>
@@ -182,9 +191,16 @@ function ProjectTags({ projectData, projectIndex }: ProjectProps) {
                     </div>
                 )}
 
-                {currProject.tags.map((obj, index) => (
-                    <div key={`Tag${index}`} className="flex items-center">{obj}</div>
-                ))}
+                <div className="projects-tech-stack-grid">
+                    {currProject.tags.map((obj, index) => (
+                        <div
+                            key={`Tag${index}`}
+                            className={`projects-tech-stack-item`}
+                        >
+                            {obj}
+                        </div>
+                    ))}
+                </div>
             </div>
         </>
     );

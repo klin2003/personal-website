@@ -274,6 +274,7 @@ CSS for About Section
 }
 
 .about-description-h2-name {
+    background-image: url("https://www.svgrepo.com/show/532659/sparkles.svg");
     color: #0026ad;
 }
 
@@ -413,6 +414,10 @@ CSS for Projects Section
     fill: #bababa;
 }
 
+.projects-img-arrow:hover {
+    fill: #bababa;
+}
+
 .projects-display-section {
     margin-bottom: 32px;
 }
@@ -422,6 +427,7 @@ CSS for Projects Section
     flex-shrink: 0;
 
     margin-right: 48px;
+    will-change: transform;
 }
 
 .project-img,
@@ -509,7 +515,6 @@ CSS for Projects Section
         -1px -1px 4px rgba(0, 0, 0, 0.6),
         1px -1px 4px rgba(0, 0, 0, 0.6),
         -1px 1px 4px rgba(0, 0, 0, 0.6),
-        1px 1px 4px rgba(0, 0, 0, 0.6),
         2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
@@ -521,6 +526,7 @@ CSS for Projects Section
 @media (min-width: 1001px) {
     .projects-details-section {
         flex-direction: row;
+        width: 100%;
     }
 }
 
@@ -528,8 +534,45 @@ CSS for Projects Section
     display: flex;
     flex-direction: column;
 
-    width: 600px;
     padding-right: 64px;
+}
+
+.projects-tech-stack {
+    width: 100%;
+    flex-grow: 1;
+}
+
+.projects-tech-stack-grid {
+    display: grid;
+    width: 100%;
+
+    grid-template-columns: repeat(auto-fit, minmax(112px, max-content));
+    gap: 20px;
+}
+
+.projects-tech-stack-item {
+    color: white;
+    background: linear-gradient(to right, #6a94c9, #b0d9e9);
+    text-align: center;
+    text-shadow:
+        -1px -1px 2px rgba(0, 0, 0, 0.6),
+        1px -1px 2px rgba(0, 0, 0, 0.6),
+        -1px 1px 2px rgba(0, 0, 0, 0.6),
+        2px 2px 2px rgba(0, 0, 0, 0.6);
+
+    padding: 8px;
+    border-radius: 20px;
+    border: 2px solid black;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    transition: transform 0.2s ease;
+}
+
+.projects-tech-stack-item:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 /*
