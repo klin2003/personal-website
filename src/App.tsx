@@ -35,7 +35,7 @@ function App() {
       <ProjectsPage width={windowWidth} projectIndex={projectIndex} setProjectIndex={setProjectIndex} setFocus={setFocusState} />
       <ToolsPage width={windowWidth} />
 
-      {(focusState >= 0) && <Overlay projectIndex={projectIndex} setFocus={setFocusState} focusState={focusState} />}
+      <Overlay projectIndex={projectIndex} setFocus={setFocusState} focusState={focusState} />
 
       <Footer />
     </div>

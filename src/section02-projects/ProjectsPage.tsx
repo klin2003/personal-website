@@ -132,8 +132,8 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
         return (
             <>
                 <div className="flex flex-row justify-between mt-4 mb-4">
-                    <BsCaretLeftFill size={32} className="projects-img-arrow cursor-pointer mr-4" onClick={() => changeIndexFactor(false)} />
-                    <BsCaretRightFill size={32} className="projects-img-arrow cursor-pointer ml-4" onClick={() => changeIndexFactor(true)} />
+                    <BsCaretLeftFill size={32} className="projects-img-arrow mr-4" onClick={() => changeIndexFactor(false)} />
+                    <BsCaretRightFill size={32} className="projects-img-arrow ml-4" onClick={() => changeIndexFactor(true)} />
                 </div>
                 <div ref={containerRef} className="project-display-images flex items-center">
                     {currProject.images.map((urlModule, index) => (
@@ -143,7 +143,6 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
                             style={{ transform: `translateX(-${indexFactor * imageWidth}px)` }}
                         >
                             <img src={urlModule.default} className="project-img" onClick={() => setFocus((index + indexFactor) % maxIndex)} onLoad={updateImageWidth} />
-                            <span className="project-img-index">{`${(index + indexFactor) % maxIndex}`}</span>
                             <BsZoomIn className="project-img-zoom cursor-pointer" onClick={() => setFocus((index + indexFactor) % maxIndex)} />
                         </div>
                     ))}

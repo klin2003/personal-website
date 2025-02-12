@@ -68,52 +68,22 @@ CSS Keyframe Animations
     }
 }
 
-@keyframes pulse {
-
-    0%,
-    100% {
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5);
+@keyframes zoom {
+    from {
+        transform: scale(0.4)
     }
 
-    50% {
-        text-shadow: 0 0 25px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 1);
+    to {
+        transform: scale(1)
     }
 }
 
 /*
-CSS for Overlay Layer
+Helper CSS for Animations
 */
 
-.full-screen-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    overflow: hidden;
-
-    width: 100vw;
-    height: 100vh;
-
-    background-color: rgba(0, 0, 0, 0.75);
-}
-
-.full-screen-overlay-exit-text {
-    color: white;
-
-    font-weight: 600;
-    font-size: 36px;
-    font-family: "Fira Code", monospace;
-
-    padding-top: 24px;
-
-    animation: pulse 1.5s infinite;
-    cursor: pointer;
-}
-
-.full-screen-overlay-arrows {
-    margin: 24px;
-
-    cursor: pointer;
+.zoom {
+    animation: zoom 0.8s;
 }
 
 /*
@@ -405,15 +375,15 @@ CSS for Projects Section
     padding: 0px 32px;
 }
 
-.projects-header-arrow {
-    width: 32px;
-    height: 32px;
+.projects-header-arrow,
+.projects-img-arrow {
+    font-size: 32px;
+
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.projects-header-arrow:hover {
-    fill: #bababa;
-}
-
+.projects-header-arrow:hover,
 .projects-img-arrow:hover {
     fill: #bababa;
 }
@@ -454,19 +424,6 @@ CSS for Projects Section
     border: 2px solid white
 }
 
-.project-img-index {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    color: white;
-    font-size: 24px;
-
-    margin: 8px 0px 0px 12px;
-
-    opacity: 0;
-}
-
 .project-img-zoom {
     position: absolute;
     top: 0;
@@ -485,21 +442,66 @@ CSS for Projects Section
     opacity: 1.0;
 }
 
-.project-focus-img {
-    max-height: 512px;
-    width: auto;
-    height: auto;
-
-    border-radius: 20px;
-    border: 2px solid transparent;
-    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.3);
-}
-
 .project-img:hover {
     opacity: 0.8;
     cursor: pointer;
 
     border: 2px solid white
+}
+
+#project-focus-img-modal {
+    display: none;
+    position: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#project-focus-img {
+    display: block;
+
+    max-height: 512px;
+    width: auto;
+    height: auto;
+
+    margin: auto;
+    border-radius: 20px;
+    border: 2px solid transparent;
+}
+
+.project-focus-img-arrow {
+    margin: 32px;
+
+    color: white;
+    font-size: 32px;
+
+    cursor: pointer;
+}
+
+.project-focus-img-modal-close {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+
+    color: white;
+    font-size: 48px;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.project-focus-img-modal-close:hover {
+    fill: #bababa;
 }
 
 .projects-details-title {
@@ -600,3 +602,7 @@ CSS for Footer
 
     padding: 12px;
 }
+
+/*
+Testing Area Below:
+*/
