@@ -366,13 +366,15 @@ CSS for Projects Section
     font-weight: 200;
 }
 
-.projects-header-index {
+.projects-header-index,
+.projects-img-slides-index {
     display: inline-block;
+    padding: 0px 32px;
 
     font-size: 24px;
     font-family: "Source Code Pro", monospace;
 
-    padding: 0px 32px;
+    user-select: none;
 }
 
 .projects-header-arrow,
@@ -410,6 +412,7 @@ CSS for Projects Section
     border-radius: 20px;
     border: 2px solid transparent;
 
+    user-select: none;
     transition: transform 0.5 ease-in-out;
 }
 
@@ -477,6 +480,8 @@ CSS for Projects Section
     margin: auto;
     border-radius: 20px;
     border: 2px solid transparent;
+
+    user-select: none;
 }
 
 .project-focus-img-arrow {

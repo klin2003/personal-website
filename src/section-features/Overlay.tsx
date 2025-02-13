@@ -42,7 +42,7 @@ export default function Overlay(props: any) {
                 <BsXCircleFill className="project-focus-img-modal-close" onClick={() => { props.setFocus(-1) }} />
                 <div className="flex flex-row items-center">
                     <BsArrowLeft className="project-focus-img-arrow" onClick={() => changeFocus(false)} />
-                    <Fade key={props.focusState} duration={800}>
+                    <Fade key={props.focusState} duration={1000}>
                         <img id="project-focus-img" className={`${playZoom ? 'zoom' : ''}`} />
                     </Fade>
                     <BsArrowRight className="project-focus-img-arrow" onClick={() => changeFocus(true)} />

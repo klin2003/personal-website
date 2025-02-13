@@ -32,7 +32,7 @@ export default function ProjectsPage(props: any) {
 
                 <Fade key={props.projectIndex}>
                     <ProjectTitle projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
-                    <ProjectDisplay projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} setFocus={props.setFocus} />
+                    <ProjectImageSlides projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} setFocus={props.setFocus} />
                     <ProjectDetails projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
                 </Fade>
             </div>
@@ -77,21 +77,10 @@ function ProjectTitle({ projectData, projectIndex }: ProjectProps) {
     return (
         <div className="projects-header-section flex flex-col">
             <div className="projects-header-title averia-serif">{currProject.title}</div>
-            <div className="projects-header-status montserrat text-gray-400 font-bold">{`Status: [${currProject.status}]`}</div>
-        </div>
-    );
-}
-
-function ProjectDisplay({ projectData, projectIndex, setProjectIndex, setFocus }: ExtendedProjectProps) {
-    const currProject = projectData[projectIndex - 1];
-
-    return (
-        <div className="projects-display-section flex flex-col overflow-hidden">
-            <ProjectImageSlides projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} setFocus={setFocus} />
-
-            <div className="italic montserrat">
+            <div className="montserrat text-gray-400 font-bold mb-8">
                 <span className="underline underline-offset-4">Last Updated</span>
                 <span>{`: ${currProject.last_updated}`}</span>
+                <div className="mt-2">{`Status: [${currProject.status}]`}</div>
             </div>
         </div>
     );
@@ -102,8 +91,8 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
     const maxIndex = currProject.images.length;
 
     const [indexFactor, setIndexFactor] = useState(0);
-    const containerRef = useRef<HTMLDivElement>(null);
     const [imageWidth, setImageWidth] = useState(0);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const changeIndexFactor = (inc: boolean) => {
         if (inc)
@@ -124,17 +113,13 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
 
     if (currProject.images.length == 0) {
         return (
-            <div className="project-display-images flex items-center">
+            <div className="project-display-section flex items-center">
                 <img src={NoImages} className="project-img-none" />
             </div>
         )
     } else {
         return (
-            <>
-                <div className="flex flex-row justify-between mt-4 mb-4">
-                    <BsCaretLeftFill size={32} className="projects-img-arrow mr-4" onClick={() => changeIndexFactor(false)} />
-                    <BsCaretRightFill size={32} className="projects-img-arrow ml-4" onClick={() => changeIndexFactor(true)} />
-                </div>
+            <div className="projects-display-section flex flex-col overflow-hidden">
                 <div ref={containerRef} className="project-display-images flex items-center">
                     {currProject.images.map((urlModule, index) => (
                         <div
@@ -147,7 +132,16 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
                         </div>
                     ))}
                 </div>
-            </>
+                <div className="flex flex-row justify-between">
+                    <BsCaretLeftFill size={32} className="projects-img-arrow mr-4" onClick={() => changeIndexFactor(false)} />
+                    <div className="projects-img-slides-index">
+                        <span className="font-medium text-red-500">{`${(indexFactor + 1).toString().padStart(2, '0')}`}</span>
+                        <span> / </span>
+                        <span>{`${maxIndex.toString().padStart(2, '0')}`}</span>
+                    </div>
+                    <BsCaretRightFill size={32} className="projects-img-arrow ml-4" onClick={() => changeIndexFactor(true)} />
+                </div>
+            </div>
         );
     }
 }
