@@ -329,7 +329,10 @@ CSS for Projects Section
     width: 100%;
     padding: 16px;
 
-    background: linear-gradient(to bottom, #090030, #001150, #001666, #001150, #090030);
+
+    background:  linear-gradient(to bottom, #090030, #001150, #001666, #001666, #001150) no-repeat, #001150;
+    background-size: 100% 720px, 100% 100%;
+    background-position: top, top;
 }
 
 .projects-section-header {
@@ -355,7 +358,11 @@ CSS for Projects Section
 }
 
 .projects-display-section {
+    display: flex;
+    flex-direction: column;
+
     margin-bottom: 32px;
+    overflow: hidden;
 }
 
 .projects-header-arrow {
@@ -420,10 +427,6 @@ CSS for Projects Section
 
     user-select: none;
     transition: transform 0.5 ease-in-out;
-}
-
-.project-img-none {
-    margin: 20px 0px;
 }
 
 .project-img-container:hover .project-img {

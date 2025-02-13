@@ -113,13 +113,23 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
 
     if (currProject.images.length == 0) {
         return (
-            <div className="project-display-section flex items-center">
-                <img src={NoImages} className="project-img-none" />
+            <div className="projects-display-section">
+                <div ref={containerRef} className="project-display-images flex items-center">
+                    <img src={NoImages} className="project-img-none" />
+                </div>
+                
+                <div className="flex flex-row justify-between mt-2 p-2 border-y-2 border-gray-500 border-dashed">
+                    <BsCaretLeftFill size={32} className="projects-img-arrow mr-4" />
+                    <div className="projects-img-slides-index">
+                        <span>No Images Found</span>
+                    </div>
+                    <BsCaretRightFill size={32} className="projects-img-arrow ml-4" />
+                </div>
             </div>
         )
     } else {
         return (
-            <div className="projects-display-section flex flex-col overflow-hidden">
+            <div className="projects-display-section">
                 <div ref={containerRef} className="project-display-images flex items-center">
                     {currProject.images.map((urlModule, index) => (
                         <div
