@@ -52,7 +52,7 @@ function ProjectHeader({ projectData, projectIndex, setProjectIndex }: ProjectPr
 
     return (
         <div className="flex flex-row justify-between items-center">
-            <div className="text-red-500 font-bold montserrat">
+            <div className="text-red-500 font-bold text-sm montserrat">
                 CURRENT LISTING:
             </div>
 
@@ -75,12 +75,12 @@ function ProjectTitle({ projectData, projectIndex }: ProjectProps) {
     const currProject = projectData[projectIndex - 1];
 
     return (
-        <div className="projects-header-section flex flex-col">
+        <div className="projects-header-section flex flex-row items-center justify-between mt-2 mb-2">
             <div className="projects-header-title averia-serif">{currProject.title}</div>
-            <div className="montserrat text-gray-400 font-bold mb-8">
+            <div className="montserrat text-gray-300 font-semibold text-sm text-center">
                 <span className="underline underline-offset-4">Last Updated</span>
                 <span>{`: ${currProject.last_updated}`}</span>
-                <div className="mt-2">{`Status: [${currProject.status}]`}</div>
+                <div className="mt-2">{`=={ ${currProject.status} }==`}</div>
             </div>
         </div>
     );
@@ -118,12 +118,12 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
                     <img src={NoImages} className="project-img-none" />
                 </div>
                 
-                <div className="flex flex-row justify-between mt-2 p-2 border-y-2 border-gray-500 border-dashed">
-                    <BsCaretLeftFill size={32} className="projects-img-arrow mr-4" />
+                <div className="flex flex-row items-center justify-between mt-2 p-2 border-y-2 border-gray-500 border-dashed">
+                    <BsCaretLeftFill size={24} className="projects-img-arrow cursor-not-allowed mr-4" />
                     <div className="projects-img-slides-index">
                         <span>No Images Found</span>
                     </div>
-                    <BsCaretRightFill size={32} className="projects-img-arrow ml-4" />
+                    <BsCaretRightFill size={24} className="projects-img-arrow cursor-not-allowed ml-4" />
                 </div>
             </div>
         )
@@ -143,14 +143,14 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
                     ))}
                 </div>
 
-                <div className="flex flex-row justify-between mt-2 p-2 border-y-2 border-gray-500 border-dashed">
-                    <BsCaretLeftFill size={32} className="projects-img-arrow mr-4" onClick={() => changeIndexFactor(false)} />
+                <div className="flex flex-row items-center justify-between mt-2 p-2 border-y-2 border-gray-500 border-dashed">
+                    <BsCaretLeftFill size={24} className="projects-img-arrow mr-4" onClick={() => changeIndexFactor(false)} />
                     <div className="projects-img-slides-index">
-                        <span className="font-medium text-red-500">{`${(indexFactor + 1).toString().padStart(2, '0')}`}</span>
+                        <span className="text-red-500">{`${(indexFactor + 1).toString().padStart(2, '0')}`}</span>
                         <span> / </span>
                         <span>{`${maxIndex.toString().padStart(2, '0')}`}</span>
                     </div>
-                    <BsCaretRightFill size={32} className="projects-img-arrow ml-4" onClick={() => changeIndexFactor(true)} />
+                    <BsCaretRightFill size={24} className="projects-img-arrow ml-4" onClick={() => changeIndexFactor(true)} />
                 </div>
             </div>
         );
@@ -160,10 +160,10 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
 function ProjectDetails({ projectData, projectIndex, setProjectIndex }: ProjectProps) {
     return (
         <div className="projects-details-section">
-            <div className="flex-1">
+            <div className="flex-[0_0_50%]">
                 <ProjectDescription projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
             </div>
-            <div className="flex flex-col flex-1">
+            <div className="flex flex-col flex-[0_0_50%]">
                 <ProjectTags projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
                 <ProjectLinks projectData={projectData} projectIndex={projectIndex} setProjectIndex={setProjectIndex} />
             </div>
@@ -175,9 +175,9 @@ function ProjectDescription({ projectData, projectIndex }: ProjectProps) {
     const currProject = projectData[projectIndex - 1];
 
     return (
-        <div className="projects-description-container mb-8">
+        <div className="projects-description-container mb-6">
             <div className="projects-details-title">DESCRIPTION</div>
-            <div className="projects-description-content source-code-pro mb-4">{currProject.description}</div>
+            <div className="projects-description-content source-code-pro">{currProject.description}</div>
         </div>
     );
 }
@@ -188,7 +188,7 @@ function ProjectTags({ projectData, projectIndex }: ProjectProps) {
     return (
         <>
             <div className="projects-details-title">TECH STACK</div>
-            <div className="projects-tech-stack mb-8">
+            <div className="projects-tech-stack mb-6">
                 {currProject.tags.length == 0 && (
                     <div className="source-code-pro">
                         No Tech Stack Provided
