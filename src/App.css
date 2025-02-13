@@ -323,20 +323,26 @@ CSS for Projects Section
 */
 
 #projects {
-    background: linear-gradient(to bottom, #090030, #001150, #001666, #001150, #090030);
+    display: flex;
+    flex-direction: row;
 
     width: 100%;
-
     padding: 16px;
+
+    background: linear-gradient(to bottom, #090030, #001150, #001666, #001150, #090030);
+}
+
+.projects-section-header {
+    padding-top: 312px;
 }
 
 @media (min-width: 1201px) {
-    .projects .section-header {
+    .projects-section-header .section-header {
         min-width: 300px;
     }
 }
 
-.projects .section-header .header-title {
+.projects-section-header .section-header .header-title {
     color: white;
 
     padding-right: 32px;

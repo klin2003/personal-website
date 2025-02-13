@@ -25,8 +25,8 @@ export default function ProjectsPage(props: any) {
     }
 
     return (
-        <div id="projects" className="flex flex-row items-center">
-            <SectionHeader className="projects" entryNumber={2} titleLabel={(props.width > 1200) ? "Projects" : ""} />
+        <div id="projects">
+            <SectionHeader className="projects-section-header" entryNumber={2} titleLabel={(props.width > 1200) ? "Projects" : ""} />
             <div className="projects-container flex flex-col text-white">
                 <ProjectHeader projectData={DATA.projectData} projectIndex={DATA.projectIndex} setProjectIndex={DATA.setProjectIndex} />
 
@@ -132,7 +132,8 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
                         </div>
                     ))}
                 </div>
-                <div className="flex flex-row justify-between">
+
+                <div className="flex flex-row justify-between mt-2 p-2 border-y-2 border-gray-500 border-dashed">
                     <BsCaretLeftFill size={32} className="projects-img-arrow mr-4" onClick={() => changeIndexFactor(false)} />
                     <div className="projects-img-slides-index">
                         <span className="font-medium text-red-500">{`${(indexFactor + 1).toString().padStart(2, '0')}`}</span>
