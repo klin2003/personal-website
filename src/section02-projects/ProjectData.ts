@@ -193,7 +193,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (800 / 800),
 
-        description: "Placeholder Description",
+        description: "A two-day project for my AP Computer Science A high school course where I used Java with the Processing API to create a replica of Crossy Road, based on concepts from class and the official documentation.",
         tags: ["Java", "Processing"],
         links: [
             { type: "GitHub", name: "Totally Not Crossy Road", url: "https://github.com/klin2003/totally-not-crossy-road" }
