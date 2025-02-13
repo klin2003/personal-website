@@ -34,7 +34,7 @@ const PROJECTS: ProjectInfo[] = [
         aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
-        tags: ["JavaScript", "React", "Java", "Spring", "Python", "Pandas", "GeoPandas"],
+        tags: ["JavaScript", "React", "Java", "Spring", "Python", "Pandas", "GeoPandas", "MongoDB"],
         links: [
             { type: "Try", name: "Lobos Client", url: "https://lobos-client.vercel.app/" }
         ]
@@ -76,7 +76,7 @@ const PROJECTS: ProjectInfo[] = [
         aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
-        tags: [],
+        tags: ["JavaScript", "React", "Node.js", "Express.js", "Python", "Flask", "DeepFace", "OpenAI"],
         links: []
     },
     {
@@ -95,7 +95,7 @@ const PROJECTS: ProjectInfo[] = [
         aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
-        tags: [],
+        tags: ["Java", "SpigotMC"],
         links: []
     },
     {
@@ -114,7 +114,7 @@ const PROJECTS: ProjectInfo[] = [
         aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
-        tags: [],
+        tags: ["JavaScript", "React", "Node.js", "Express.js", "bcrypt", "MongoDB"],
         links: []
     },
     {
@@ -133,7 +133,7 @@ const PROJECTS: ProjectInfo[] = [
         aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
-        tags: [],
+        tags: ["JavaScript", "React", "Node.js", "MongoDB"],
         links: []
     },
     {
@@ -152,18 +152,18 @@ const PROJECTS: ProjectInfo[] = [
         aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
-        tags: [],
+        tags: ["C", "GDB"],
         links: [
             { type: "GitHub", name: "320 Memory Allocator", url: "https://github.com/klin2003/320-memory-allocator" }
         ]
     },
     {
-        title: "Graphs in MIPs",
+        title: "Graphs in MIPS",
         status: "Completed",
         
         last_updated: "Dec 11, 2022",
         images: Object.values(
-            import.meta.glob(`@assets/project-images/Graphs_MIPs/*.png`, {
+            import.meta.glob(`@assets/project-images/Graphs_MIPS/*.png`, {
                 eager: true,
                 query: {
                   type: 'url',
@@ -173,7 +173,7 @@ const PROJECTS: ProjectInfo[] = [
         aspect_ratio: (1920 / 1080),
 
         description: "Placeholder Description",
-        tags: [],
+        tags: ["MIPS Assembly", "MARS"],
         links: [
             { type: "GitHub", name: "220 MIPs Graphs", url: "https://github.com/klin2003/220-mips-graphs" }
         ]
@@ -194,7 +194,7 @@ const PROJECTS: ProjectInfo[] = [
         aspect_ratio: (800 / 800),
 
         description: "Placeholder Description",
-        tags: [],
+        tags: ["Java", "Processing"],
         links: [
             { type: "GitHub", name: "Totally Not Crossy Road", url: "https://github.com/klin2003/totally-not-crossy-road" }
         ]
