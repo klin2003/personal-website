@@ -34,7 +34,7 @@ const PROJECTS: ProjectInfo[] = [
         aspect_ratio: (1920 / 1080),
 
         description: "Senior design project completed as a team of four, focusing on analyzing and visualizing political data. Python was used to preprocess Census data through Pandas, with further analysis done through libraries such as PyEI and GerryChain. Check out the project via the attached link and feel free to reach out with any questions!",
-        tags: ["JavaScript", "React", "Leaflet", "axios", "Java", "Spring", "Python", "Pandas", "MongoDB"],
+        tags: ["JavaScript", "React", "Leaflet", "MongoDB", "Java", "Spring", "Python", "Pandas"],
         links: [
             { type: "Try", name: "Lobos Client", url: "https://lobos-client.vercel.app/" }
         ]
@@ -63,7 +63,7 @@ const PROJECTS: ProjectInfo[] = [
     },
     {
         title: "ViewYou",
-        status: "Plans for Revision",
+        status: "Archived",
         
         last_updated: "Mar 13, 2024",
         images: Object.values(
@@ -120,7 +120,7 @@ const PROJECTS: ProjectInfo[] = [
     },
     {
         title: "Time2Learn",
-        status: "Completed",
+        status: "Archived",
         
         last_updated: "Feb 11, 2024",
         images: Object.values(
@@ -152,8 +152,8 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (1920 / 1080),
 
-        description: "Placeholder Description",
-        tags: ["C", "GDB"],
+        description: "A custom dynamic memory allocator in C, replicating malloc(), free(), and realloc(). This project utilizes quick lists for efficient small block management, headers/footers for tracking, and coalescing to reduce fragmentation. A deep dive into memory management and systems programming. Check out the attached GitHub repo for more information!",
+        tags: ["C", "GDB", "Valgrind"],
         links: [
             { type: "GitHub", name: "320 Memory Allocator", url: "https://github.com/klin2003/320-memory-allocator" }
         ]
@@ -173,15 +173,15 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (1920 / 1080),
 
-        description: "Placeholder Description",
-        tags: ["MIPS Assembly", "MARS"],
+        description: "This project builds a simple graph-based social network in MIPS assembly, with nodes as people and relationships as edges. It allows you to add people, find users by name, manage relationships, and query for distant friends. This project explores memory management, data structures, and graph traversal in low-level programming. Check out the README in the GitHub repo for more details!",
+        tags: ["MIPS", "Assembly", "MARS"],
         links: [
             { type: "GitHub", name: "220 MIPs Graphs", url: "https://github.com/klin2003/220-mips-graphs" }
         ]
     },
     {
         title: "Totally Not Crossy Road",
-        status: "Completed",
+        status: "Archived",
         
         last_updated: "Jun 14, 2020",
         images: Object.values(
@@ -194,7 +194,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (800 / 800),
 
-        description: "Two-day project for my AP Computer Science A course in high school where Java was used together with Processing API to create a replica of Crossy Road. Our ultimate goal was to combine concepts from class with official documentation on Processing API to create a replica of an existing game. Try the game out by downloading it from the attached GitHub repo!",
+        description: "Two-day project for my AP Computer Science A high school course where Java and Processing API were used to create a replica of Crossy Road. Our ultimate goal was to combine concepts discussed in class with official documentation to create a replica of an existing game. Try the game out by downloading it from the attached GitHub repo!",
         tags: ["Java", "Processing"],
         links: [
             { type: "GitHub", name: "Totally Not Crossy Road", url: "https://github.com/klin2003/totally-not-crossy-road" },
