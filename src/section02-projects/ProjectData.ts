@@ -1,5 +1,5 @@
 export interface ProjectLink {
-    type: "GitHub" | "Try"
+    type: "GitHub" | "Try" | "Resource"
     name: string
     url: string
 }
@@ -33,8 +33,8 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (1920 / 1080),
 
-        description: "Placeholder Description",
-        tags: ["JavaScript", "React", "Java", "Spring", "Python", "Pandas", "GeoPandas", "MongoDB"],
+        description: "Senior design project completed as a team of four, focusing on analyzing and visualizing political data. Python was used to preprocess Census data through Pandas, with further analysis done through libraries such as PyEI and GerryChain. Check out the project via the attached link and feel free to reach out with any questions!",
+        tags: ["JavaScript", "React", "Leaflet", "axios", "Java", "Spring", "Python", "Pandas", "MongoDB"],
         links: [
             { type: "Try", name: "Lobos Client", url: "https://lobos-client.vercel.app/" }
         ]
@@ -54,10 +54,11 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (1500 / 1000),
 
-        description: "Placeholder Description",
-        tags: ["TypeScript", "Gulp.js", "Wolfie2D"],
+        description: "A browser game built as a team of three for our 2D Game Development course. Developed with TypeScript using a custom engine, Wolfie2D, and bundled with Gulp.js, then served via Firebase. Play with a friend in this immersive local 2-player adventure through the attached link!",
+        tags: ["TypeScript", "Gulp.js", "Wolfie2D", "Firebase"],
         links: [
-            { type: "Try", name: "Asphodel", url: "https://asphodel-game.web.app/" }
+            { type: "Try", name: "Asphodel", url: "https://asphodel-game.web.app/" },
+            { type: "Resource", name: "Wolfie2D", url: "https://zgrandison.github.io/" }
         ]
     },
     {
@@ -193,10 +194,11 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (800 / 800),
 
-        description: "A two-day project for my AP Computer Science A high school course where I used Java with the Processing API to create a replica of Crossy Road, based on concepts from class and the official documentation.",
+        description: "Two-day project for my AP Computer Science A course in high school where Java was used together with Processing API to create a replica of Crossy Road. Our ultimate goal was to combine concepts from class with official documentation on Processing API to create a replica of an existing game. Try the game out by downloading it from the attached GitHub repo!",
         tags: ["Java", "Processing"],
         links: [
-            { type: "GitHub", name: "Totally Not Crossy Road", url: "https://github.com/klin2003/totally-not-crossy-road" }
+            { type: "GitHub", name: "Totally Not Crossy Road", url: "https://github.com/klin2003/totally-not-crossy-road" },
+            { type: "Resource", name: "Processing API", url: "https://processing.org/" }
         ]
     }
 ]

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
 import { Fade } from "react-awesome-reveal";
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCaretLeftFill, BsCaretRightFill, BsGithub, BsLink45Deg, BsZoomIn } from "react-icons/bs";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCaretLeftFill, BsCaretRightFill, BsGithub, BsLink45Deg, BsFillFolderSymlinkFill, BsZoomIn } from "react-icons/bs";
 
 import SectionHeader from "../section-features/SectionHeader";
 import PROJECTS, { ProjectInfo } from "./ProjectData";
@@ -224,7 +224,7 @@ function ProjectLinks({ projectData, projectIndex }: ProjectProps) {
                 )}
 
                 {currProject.links.map((obj, index) => (
-                    <div key={`Link${index}`} className="flex items-center">
+                    <div key={`Link${index}`} className="flex items-center pb-4">
                         {obj.type == 'GitHub' && (
                             <>
                                 <BsGithub size={24} className="mr-2" />
@@ -235,6 +235,12 @@ function ProjectLinks({ projectData, projectIndex }: ProjectProps) {
                             <>
                                 <BsLink45Deg size={24} className="mr-2" />
                                 <span className="source-code-pro">Try Yourself:&nbsp;</span>
+                            </>
+                        )}
+                        {obj.type == 'Resource' && (
+                            <>
+                                <BsFillFolderSymlinkFill size={24} className="mr-2" />
+                                <span className="source-code-pro">Resource:&nbsp;</span>
                             </>
                         )}
 

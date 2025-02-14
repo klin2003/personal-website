@@ -555,7 +555,6 @@ CSS for Projects Section
 
 .projects-tech-stack {
     width: 100%;
-    flex-grow: 1;
 }
 
 .projects-tech-stack-grid {
