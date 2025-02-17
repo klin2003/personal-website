@@ -119,25 +119,6 @@ const PROJECTS: ProjectInfo[] = [
         links: []
     },
     {
-        title: "Time2Learn",
-        status: "Archived",
-        
-        last_updated: "Feb 11, 2024",
-        images: Object.values(
-            import.meta.glob(`@assets/project-images/T2L/*.png`, {
-                eager: true,
-                query: {
-                  type: 'url',
-                },
-            }),
-        ),
-        aspect_ratio: (1920 / 1080),
-
-        description: "Placeholder Description",
-        tags: ["JavaScript", "React", "Node.js", "MongoDB"],
-        links: []
-    },
-    {
         title: "C Memory Allocator",
         status: "Completed",
         
