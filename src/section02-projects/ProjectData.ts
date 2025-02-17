@@ -173,7 +173,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (1920 / 1080),
 
-        description: "This project builds a simple graph-based social network in MIPS assembly, with nodes as people and relationships as edges. It allows you to add people, find users by name, manage relationships, and query for distant friends. This project explores memory management, data structures, and graph traversal in low-level programming. Check out the README in the GitHub repo for more details!",
+        description: "This project builds a simple graph-based social network in MIPS assembly, with nodes as people and relationships as edges. It allows you to add people, find users by name, manage relationships, and query for distant friends. This project explores memory management, data structures, and graph traversal in low-level programming. Check out the GitHub repo for more details!",
         tags: ["MIPS", "Assembly", "MARS"],
         links: [
             { type: "GitHub", name: "220 MIPs Graphs", url: "https://github.com/klin2003/220-mips-graphs" }
