@@ -1,5 +1,5 @@
 export interface ProjectLink {
-    type: "GitHub" | "Try" | "Resource"
+    type: "GitHub" | "Try" | "Resource" | "Download"
     name: string
     url: string
 }
@@ -95,9 +95,13 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (1920 / 1080),
 
-        description: "Placeholder Description",
+        description: "Using the Minecraft Development Plugin for IntelliJ with Bukkit and Spigot, I created a Bingo plugin for Minecraft. Players form teams of any size and compete by searching for items throughout the world. To keep things engaging, players vote on modifications during the game, adding unique twists and extra flair to the experience.",
         tags: ["Java", "SpigotMC"],
-        links: []
+        links: [
+            { type: "Resource", name: "Spigot MC", url: "https://www.spigotmc.org/" },
+            { type: "Resource", name: "Minecraft Development Plugin", url: "https://plugins.jetbrains.com/plugin/8327-minecraft-development" }
+            // { type: "Download", name: "Bingo.jar", url: `/personal-website/Bingo.jar` }
+        ]
     },
     {
         title: "Fake Stack Overflow",
