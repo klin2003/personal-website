@@ -327,7 +327,7 @@ CSS for Projects Section
     flex-direction: row;
 
     width: 100%;
-    padding: 16px;
+    padding: 8px 16px;
 
 
     background:  linear-gradient(to bottom, #090030, #001150, #001666, #001666, #001150) no-repeat, #001150;
@@ -575,11 +575,11 @@ CSS for Projects Section
         -1px 1px 2px rgba(0, 0, 0, 0.6),
         2px 2px 2px rgba(0, 0, 0, 0.6);
 
-    padding: 6px;
+    padding: 4px;
     border-radius: 20px;
     border: 2px solid black;
 
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
 
     transition: transform 0.2s ease;

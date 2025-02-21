@@ -1,5 +1,6 @@
 export interface ProjectLink {
-    type: "GitHub" | "Try" | "Resource" | "Download"
+    type: "GitHub" | "Try" | "Resource" | "Download" | "Other"
+    title ?: string
     name: string
     url: string
 }
@@ -76,9 +77,13 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (1920 / 1080),
 
-        description: "Placeholder Description",
+        description: "ViewYou is a 48-hour hackathon project built as a team of 4 to help users ace interviews through behavioral questions. It generates tailored prompts based on a job title and records responses in a virtual interview setup. Using OpenAI, the tool evaluates both spoken answers and body language, applying the STAR interview method for a structured review.",
         tags: ["JavaScript", "React", "Node.js", "Express.js", "Python", "Flask", "DeepFace", "OpenAI"],
-        links: []
+        links: [
+            { type: "GitHub", name: "Frontend", url: "https://github.com/yemoeaung1/frontend" },
+            { type: "GitHub", name: "Backend", url: "https://github.com/klin4042/cewit-2024-backend" },
+            { type: "Other", title: "DevPost", name: "ViewYou", url: "https://devpost.com/software/viewyou" }
+        ]
     },
     {
         title: "Minecraft Bingo",
@@ -118,7 +123,7 @@ const PROJECTS: ProjectInfo[] = [
         ),
         aspect_ratio: (1920 / 1080),
 
-        description: "Placeholder Description",
+        description: "This project is a Stack Overflow-inspired Q&A forum built using the MERN stack. Through bcrypt, the platform secures the user's data and provides a form of user authentication. Other features include standard Stack Overflow functionalities such as question and answer posting, commenting, tagging, searching, and upvoting.",
         tags: ["JavaScript", "React", "Node.js", "Express.js", "bcrypt", "MongoDB"],
         links: []
     },

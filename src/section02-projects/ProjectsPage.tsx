@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
 import { Fade } from "react-awesome-reveal";
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCaretLeftFill, BsCaretRightFill, BsGithub, BsLink45Deg, BsFillFolderSymlinkFill, BsDownload, BsZoomIn } from "react-icons/bs";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill, BsCaretLeftFill, BsCaretRightFill, BsGithub, BsLink45Deg, BsFillFolderSymlinkFill, BsDownload, BsThreeDots, BsZoomIn } from "react-icons/bs";
 
 import SectionHeader from "../section-features/SectionHeader";
 import PROJECTS, { ProjectInfo } from "./ProjectData";
@@ -247,6 +247,12 @@ function ProjectLinks({ projectData, projectIndex }: ProjectProps) {
                             <>
                                 <BsDownload size={24} className="mr-4" />
                                 <span className="source-code-pro">Download:&nbsp;</span>
+                            </>
+                        )}
+                        {obj.type == 'Other' && (
+                            <>
+                                <BsThreeDots size={24} className="mr-4" />
+                                <span className="source-code-pro">{obj.title}:&nbsp;</span>
                             </>
                         )}
 
