@@ -109,25 +109,6 @@ const PROJECTS: ProjectInfo[] = [
         ]
     },
     {
-        title: "Fake Stack Overflow",
-        status: "Plans for Revision",
-        
-        last_updated: "Dec 22, 2023",
-        images: Object.values(
-            import.meta.glob(`@assets/project-images/FakeSO/*.png`, {
-                eager: true,
-                query: {
-                  type: 'url',
-                },
-            }),
-        ),
-        aspect_ratio: (1920 / 1080),
-
-        description: "This project is a Stack Overflow-inspired Q&A forum built using the MERN stack. Through bcrypt, the platform secures the user's data and provides a form of user authentication. Other features include standard Stack Overflow functionalities such as question and answer posting, commenting, tagging, searching, and upvoting.",
-        tags: ["JavaScript", "React", "Node.js", "Express.js", "bcrypt", "MongoDB"],
-        links: []
-    },
-    {
         title: "C Memory Allocator",
         status: "Completed",
         
