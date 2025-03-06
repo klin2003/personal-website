@@ -14,6 +14,7 @@ export interface ProjectInfo {
     aspect_ratio: number
 
     description: string
+    disclaimer?: string
     tags: string[]
     links: ProjectLink[]
 }
@@ -63,29 +64,6 @@ const PROJECTS: ProjectInfo[] = [
         ]
     },
     {
-        title: "ViewYou",
-        status: "Archived",
-        
-        last_updated: "Mar 13, 2024",
-        images: Object.values(
-            import.meta.glob(`@assets/project-images/ViewYou/*.png`, {
-                eager: true,
-                query: {
-                  type: 'url',
-                },
-            }),
-        ),
-        aspect_ratio: (1920 / 1080),
-
-        description: "ViewYou is a 48-hour hackathon project built as a team of 4 to help users ace interviews through behavioral questions. It generates tailored prompts based on a job title and records responses in a virtual interview setup. Using OpenAI, the tool evaluates both spoken answers and body language, applying the STAR interview method for a structured review.",
-        tags: ["JavaScript", "React", "Node.js", "Express.js", "Python", "Flask", "DeepFace", "OpenAI"],
-        links: [
-            { type: "GitHub", name: "Frontend", url: "https://github.com/yemoeaung1/frontend" },
-            { type: "GitHub", name: "Backend", url: "https://github.com/klin4042/cewit-2024-backend" },
-            { type: "Other", title: "DevPost", name: "ViewYou", url: "https://devpost.com/software/viewyou" }
-        ]
-    },
-    {
         title: "Minecraft Bingo",
         status: "Plans for Revision",
         
@@ -106,6 +84,30 @@ const PROJECTS: ProjectInfo[] = [
             { type: "Resource", name: "Spigot MC", url: "https://www.spigotmc.org/" },
             { type: "Resource", name: "Minecraft Development Plugin", url: "https://plugins.jetbrains.com/plugin/8327-minecraft-development" }
             // { type: "Download", name: "Bingo.jar", url: `/personal-website/Bingo.jar` }
+        ]
+    },
+    {
+        title: "ViewYou",
+        status: "Archived",
+        
+        last_updated: "Mar 13, 2024",
+        images: Object.values(
+            import.meta.glob(`@assets/project-images/ViewYou/*.png`, {
+                eager: true,
+                query: {
+                  type: 'url',
+                },
+            }),
+        ),
+        aspect_ratio: (1920 / 1080),
+
+        description: "ViewYou is a 4-person hackathon project designed using OpenAI to help users prep for interviews by generating behavioral questions. OpenAI's speech recognition and DeepFace's sentiment analysis are used to analyze both speech and body language for feedback.",
+        disclaimer: "This project was created for the CEWIT 2024 Hackathon while exploring new tools and technologies. The code is no longer maintained and likely contains many bugs.",
+        tags: ["JavaScript", "React", "Node.js", "Express.js", "Python", "Flask", "DeepFace", "OpenAI"],
+        links: [
+            { type: "GitHub", name: "Frontend", url: "https://github.com/yemoeaung1/frontend" },
+            { type: "GitHub", name: "Backend", url: "https://github.com/klin4042/cewit-2024-backend" },
+            { type: "Other", title: "DevPost", name: "ViewYou", url: "https://devpost.com/software/viewyou" }
         ]
     },
     {

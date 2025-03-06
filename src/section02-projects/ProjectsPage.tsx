@@ -117,7 +117,7 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
                 <div ref={containerRef} className="project-display-images flex items-center">
                     <img src={NoImages} className="project-img-none" />
                 </div>
-                
+
                 <div className="flex flex-row items-center justify-between mt-2 p-2 border-y-2 border-gray-500 border-dashed">
                     <BsCaretLeftFill size={24} className="projects-img-arrow cursor-not-allowed mr-4" />
                     <div className="projects-img-slides-index">
@@ -137,8 +137,8 @@ function ProjectImageSlides({ projectData, projectIndex, setFocus }: ExtendedPro
                             className="relative project-img-container flex transition-transform duration-500 ease-in-out"
                             style={{ transform: `translateX(-${indexFactor * imageWidth}px)` }}
                         >
-                            <img src={urlModule.default} className="project-img" onClick={() => setFocus((index + indexFactor) % maxIndex)} onLoad={updateImageWidth} />
-                            <BsZoomIn className="project-img-zoom cursor-pointer" onClick={() => setFocus((index + indexFactor) % maxIndex)} />
+                            <img src={urlModule.default} className="project-img" onClick={() => { console.log(index); setFocus(index) }} onLoad={updateImageWidth} />
+                            <BsZoomIn className="project-img-zoom cursor-pointer" onClick={() => { console.log(index); setFocus(index) }} />
                         </div>
                     ))}
                 </div>
@@ -178,6 +178,12 @@ function ProjectDescription({ projectData, projectIndex }: ProjectProps) {
         <div className="projects-description-container mb-6">
             <div className="projects-details-title">DESCRIPTION</div>
             <div className="projects-description-content source-code-pro">{currProject.description}</div>
+            {currProject.disclaimer && (
+                <div className="mt-6">
+                    <div className="projects-details-title text-red-500">DISCLAIMER</div>
+                    <div className="projects-description-content source-code-pro italic text-sm">{currProject.disclaimer}</div>
+                </div>
+            )}
         </div>
     );
 }
